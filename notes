@@ -1,0 +1,41 @@
+Requirements
+1. Has many, belongs_to, has many through
+2. Models validations
+3. Class level ActiveRecord scope methods
+4. Nested form that writes to an associated model through a custom attribute writer.
+   (Can't use accepted nested attributes macro)
+5. User authentication system
+6. Allow log in through Facebook
+7. You must make use of a nested resource with the appropriate RESTful URLs.
+   Additionally, your nested resource must provide a form that relates to the parent resource
+8. Your forms should correctly display validation errors.Your fields should be enclosed within
+    a fields_with_errors class and error messages describing the validation failures
+    must be present within the view.
+9. DRY, use partials and helper methods
+
+Application Run through:
+  1. User signs up for doggo with email that is unique and present
+  2. New User Form includes nested attribute for references
+  3. User can log in either with email or facebook
+  4. User show page has nested resource to upload profile picture at /user/1/profile_pic/new
+  5. On Log in user sees home page- button to view profile, or index of dogs
+  6. Dog index page has list of all dogs with attributes and button to reserve walk
+  7. If click walk dog, the dog profile box turns grey and word reserved appears on top
+  8. Maybe have option to see reserved walks on user profile??
+  9. User admin can add, edit, delete a new dog using dog forms
+  10. Logout
+
+
+Models:
+  User
+      :username, :email, :password_digest, :bio, :admin, default: false
+
+  Reference -Nested form attribute for user
+    :name, :phone_number, :location
+    :user_id
+
+  Dog
+      :name, :breed, :age, :temperament
+
+  Walk (join table)
+      :user_id, :dog_id, :day, :time, :reserved: boolean default => false
