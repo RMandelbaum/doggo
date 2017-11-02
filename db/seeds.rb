@@ -5,7 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+users = User.create([
+           {
+             username: "Rachel",
+            email: "Rachel@gmail.com",
+            password: "Password",
+            bio: "I love Dogs!!",
+            admin: false
+          },
+          {
+           username: "Jen",
+           email: "Jen@gmail.com",
+           password: "Password",
+           bio: "I love dogs so much I run this app, and decide which dogs go on the page.",
+           admin: true
+          }
+        ])
+        
 dogs = Dog.create([{
         name: 'Buddy',
         breed: 'Pug',
