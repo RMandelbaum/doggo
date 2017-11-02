@@ -1,6 +1,6 @@
 Requirements
 1. Has many, belongs_to, has many through
-2. Models validations
+2. Models validations -- email, username, phonenumber
 3. Class level ActiveRecord scope methods
 4. Nested form that writes to an associated model through a custom attribute writer.
    (Can't use accepted nested attributes macro)
@@ -31,7 +31,7 @@ Models:
       :username, :email, :password_digest, :bio, :admin, default: false
 
   Reference -Nested form attribute for user
-    :name, :phone_number, :location
+    :name, :phone_number, :email 
     :user_id
 
   Dog

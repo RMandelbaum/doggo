@@ -8,7 +8,7 @@
 
 dogs = Dog.create([{
         name: 'Buddy',
-        breed: 'Labrodor',
+        breed: 'Pug',
         age: 10,
         temperament: 'Calm'
   },
