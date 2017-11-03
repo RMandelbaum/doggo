@@ -8,6 +8,7 @@ Requirements
 6. Allow log in through Facebook
 7. You must make use of a nested resource with the appropriate RESTful URLs.
    Additionally, your nested resource must provide a form that relates to the parent resource
+   (upload a dog pic??)
 8. Your forms should correctly display validation errors.Your fields should be enclosed within
     a fields_with_errors class and error messages describing the validation failures
     must be present within the view.
@@ -31,7 +32,7 @@ Models:
       :username, :email, :password_digest, :bio, :admin, default: false
 
   Reference -Nested form attribute for user
-    :name, :phone_number, :email 
+    :name, :phone_number, :email
     :user_id
 
   Dog

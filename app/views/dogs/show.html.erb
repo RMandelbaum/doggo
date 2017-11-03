@@ -1,0 +1,21 @@
+<div class="container">
+<div class = "left-pic">
+  <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
+</div>
+
+<div class = "info">
+  <ul>
+    <li>Name: <%= @dog.name %></li><br>
+    <li>Breed: <%= @dog.breed %></li><br>
+    <li>Age: <%= @dog.age %></li></br>
+    <li>Temperament: <%= @dog.temperament %></li>
+  </ul>
+</div>
+
+<% if current_user %>
+  <%= link_to "Reserve Walk", dog_walk_path(@dog) %>
+  <% end %>
+<% if current_user.admin? %>
+  <%= link_to "Edit Info", edit_dog_path(@dog) %>
+  <% end %>
+</div>

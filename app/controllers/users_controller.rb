@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     2.times {@user.references.build} unless @user.references.empty?
   end
 
+def edit
+  @user = User.find(params[:id])
+  render '/users/show'
+  end
+  
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
