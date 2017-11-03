@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Doggo</title>
+    <title>DogGo</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <ul>
+      <li><a class= "home" href="#">DogGo</a></li>
+
+        <% if !logged_in? %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Sign In", login_path %></li>
+        <% else %>
+          <li><%= link_to "Welcome #{current_user.username}!", user_path(current_user) %></li>
+          <li><%= link_to "View Dogs", dogs_path %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+       <% end %>
+        </ul>
+
     <%= yield %>
+
+
   </body>
+
 </html>
