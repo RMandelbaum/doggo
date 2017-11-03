@@ -1,0 +1,12 @@
+<div class = "container">
+
+  <h1>Available Dog Walkers</h1>
+    <ul>
+      <% @users.each do |user| %>
+        <% if !user.admin? %>
+          <p><%= user.username %> <br> <%= user.email %> <br> <%= user.bio %> </p>
+          <br>
+          <% end %>
+        <% end %>
+      </ul>
+</div>

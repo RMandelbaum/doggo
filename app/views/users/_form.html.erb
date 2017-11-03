@@ -4,23 +4,11 @@
   <%= f.text_area :bio %><br><br>
   <%= f.label "References:" %><br>
 
-    <%= f.fields_for :references, Reference.new do |reference| %>
+    <%= f.fields_for :references do |reference| %>
 
 
-          <fieldset>
+    <fieldset>
 
-      <%= reference.label :name %><br>
-      <%= reference.text_field :name %><br>
-      <%= reference.label :phone_number %><br>
-      <%= reference.text_field :phone_number %><br>
-      <%= reference.label :email %><br>
-      <%= reference.email_field :email %><br>
-    </fieldset>
-
-
-      <br>
-
-        <fieldset>
       <%= reference.label :name %><br>
       <%= reference.text_field :name %><br>
       <%= reference.label :phone_number %><br>

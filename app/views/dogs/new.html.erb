@@ -1,0 +1,28 @@
+
+<div class="container">
+
+  <div class="info">
+<h1> Sign Up Your Dog! </h1>
+  <%= form_for @dog do |f| %>
+  <h2> Dog Details </h2>
+    <%= f.label :name %><br>
+    <%= f.text_field :name%><br>
+    <%= f.label :age%><br>
+    <%= f.text_field :age%><br>
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %><br>
+    <%= f.label :temperament %><br>
+    <%= f.text_field :temperament %><br>
+  <h2> Time Slot </h2>
+    <%= fields_for :walks do |walk| %>
+      <%= walk.label :day %><br>
+      <%= walk.text_field :day %>
+      <br>
+      <%= walk.label :time %><br>
+      <%= walk.text_field :time %>
+      <% end %>
+      <br>
+    <%= f.submit  %>
+  <% end %>
+</div>
+</div>

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
   def new
     @user = User.new
   end
@@ -15,14 +18,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    2.times {@user.references.build} unless @user.references.empty?
+    2.times {@user.references.build} unless !@user.references.empty?
   end
 
 def edit
   @user = User.find(params[:id])
   render '/users/show'
   end
-  
+
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
@@ -33,6 +36,6 @@ def edit
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:id, :name, :email, :phone_number])
+    params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:name, :email, :phone_number])
   end
 end

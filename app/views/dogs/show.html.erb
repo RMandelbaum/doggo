@@ -1,4 +1,5 @@
 <div class="container">
+
 <div class = "left-pic">
   <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
 </div>
@@ -8,14 +9,36 @@
     <li>Name: <%= @dog.name %></li><br>
     <li>Breed: <%= @dog.breed %></li><br>
     <li>Age: <%= @dog.age %></li></br>
-    <li>Temperament: <%= @dog.temperament %></li>
+    <li>Temperament: <%= @dog.temperament %></li><br>
+    <% if current_user.admin? %>
+      <%= link_to "Edit Info", edit_dog_path(@dog) %>
+      <% end %>
   </ul>
 </div>
 
-<% if current_user %>
-  <%= link_to "Reserve Walk", dog_walk_path(@dog) %>
-  <% end %>
+
+
 <% if current_user.admin? %>
-  <%= link_to "Edit Info", edit_dog_path(@dog) %>
+  <%= button_to "New Walk Time Slot", new_dog_walk_path(@dog) %>
+
+<% elsif !current_user.admin? && !@walk.reserved? %>
+
+<div class = "info">
+
+  <ul>
+    <li> Walk Time: <br><%= @walk.day %></li><br>
+    <li> <%= @walk.time.strftime('%I:%M %p')%> </li>
+      <br>
+
+  <form action="/users/<%=current_user.id %>/walks" method="post">
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+    <%= tag(:input, :type => "hidden", :name => :user_id, :value => current_user.id) %>
+    <%= tag(:input, :type => "hidden", :name => :dog_id, :value => @dog.id) %>
+      <input type="submit" value="Reserve Walk">
+<% else %>
+    "Reserved"
   <% end %>
+</ul>
+</div>
+
 </div>

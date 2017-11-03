@@ -1,18 +1,30 @@
 <div class = "container">
   <div class = "info">
-      <h2><%= current_user.username %></h2>
+    <% if current_user.admin? %>
+        <h1>Welcome to DogGo<h1>
+          <h3><%= link_to "Sign Your Dog Up", new_dog_path %></h3>
+          <h3><%= link_to "View Dog Walkers", users_path %></h3>
 
-      <% if current_user.bio.empty? || current_user.references.empty? %>
-
-        <%= render 'form' %>
       <% else %>
-        <ul>
-          <%= current_user.references.each do |reference| %>
-              <li>reference.name</li>
-              <li>reference.phone_number</li>
-              <li>reference.email</li>
-            <% end %>
-        </ul>
-      <% end %>
+          <h2><%= current_user.username %></h2>
+
+          <% if current_user.bio.empty? || current_user.references.empty? %>
+
+            <%= render 'form' %>
+          <% else %>
+            Bio:<br> <%= current_user.bio %>
+            <br>
+            <br>
+            References: <br>
+            <ol>
+              <% current_user.references.each do |reference| %>
+                Name: <%= reference.name %><br>
+                Phone: <%= reference.phone_number %><br>
+                Email: <%= reference.email %><br>
+                <br>
+                <% end %>
+            </ol>
+          <% end %>
+          <% end %>
     </div>
 </div>
