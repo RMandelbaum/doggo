@@ -2,11 +2,7 @@
 <h1>Your Upcoming Walks: </h1>
 <ul>
   <% current_user.dogs.each do |dog| %>
-    <p><%= link_to dog.name, dog_path(dog) %> at
-        <% current_user.walks.each do |walk| %>
-              <%= walk.day %>
-            <% end %></p>
+    <p><%= link_to dog.name, dog_path(dog) %>
     <% end %>
-
 </ul>
 </div>

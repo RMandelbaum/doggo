@@ -1,14 +1,10 @@
 <div class = "container">
   <div class = "info">
-    <% if current_user.admin? %>
-        <h1>Welcome to DogGo<h1>
-          <h3><%= link_to "Sign Your Dog Up", new_dog_path %></h3>
-          <h3><%= link_to "View Dog Walkers", users_path %></h3>
 
-      <% else %>
-          <h2><%= current_user.username %></h2>
+          <h2><%= @user.username %></h2>
 
-          <% if current_user.bio.empty? || current_user.references.empty? %>
+          <% if current_user.bio.nil? || current_user.references.empty? %>
+          <h4 style = "color:red">Complete Your Profile:</h4>
 
             <%= render 'form' %>
           <% else %>
@@ -24,7 +20,8 @@
                 <br>
                 <% end %>
             </ol>
-          <% end %>
+
+            <%= link_to "Edit Profile", edit_user_path(current_user) %>
           <% end %>
     </div>
 </div>

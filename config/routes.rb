@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/auth/facebook/callback' => 'sessions#create'
+
 
   resources :users do
     resources :walks, only: [:new, :index, :create]
@@ -14,25 +16,12 @@ Rails.application.routes.draw do
     resources :walks
   end
 
-  resources :walks
+  resources :walks do
+    member do 
+      put 'reserved'
+    end
+  end
 
 
-  #nested resources
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
-#
-# GET `/dogs/:dog_id`
-# GET '/dogs/:dog_id/walks/new'
-# GET '/dogs/:dog_id/walks', to: 'walks#index'
-# POT '/'
-# Get '/'
-#
-# get '/walks'  to: 'Walks#index'
-#
-# def index
-#   if @dog = Dogi.find_by(id: params[:dog_id])
-#     @walks = @dog.walks
-#   else
-#     @walks = Walk.all
-#   end
-# end

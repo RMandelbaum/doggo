@@ -1,24 +1,18 @@
-<h4 style = "color:red">Complete Your Profile:</h4>
 <%= form_for @user do |f| %>
   <%= f.label "Bio:" %><br>
   <%= f.text_area :bio %><br><br>
   <%= f.label "References:" %><br>
 
-    <%= f.fields_for :references do |reference| %>
-
-
-    <fieldset>
-
-      <%= reference.label :name %><br>
-      <%= reference.text_field :name %><br>
-      <%= reference.label :phone_number %><br>
-      <%= reference.text_field :phone_number %><br>
-      <%= reference.label :email %><br>
-      <%= reference.email_field :email %><br>
-    </fieldset>
-
-
-      <% end %>
-
-    <%= f.submit "Update Profile" %>
+  <%= f.fields_for :references do |reference| %>
+      <fieldset>
+        <%= reference.label :name %><br>
+        <%= reference.text_field :name %><br>
+        <%= reference.label :phone_number %><br>
+        <%= reference.text_field :phone_number %><br>
+        <%= reference.label :email %><br>
+        <%= reference.email_field :email %><br>
+      </fieldset>
     <% end %>
+
+  <%= f.submit "Update Profile" %>
+<% end %>

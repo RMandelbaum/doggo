@@ -11,17 +11,17 @@ users = User.create([
             email: "Rachel@gmail.com",
             password: "Password",
             bio: "I love Dogs!!",
-            admin: false
+
           },
           {
            username: "Jen",
            email: "Jen@gmail.com",
            password: "Password",
            bio: "I love dogs so much I run this app, and decide which dogs go on the page.",
-           admin: true
+
           }
         ])
-        
+
 dogs = Dog.create([{
         name: 'Buddy',
         breed: 'Pug',

@@ -10,26 +10,11 @@
 
   <body>
     <ul>
-      <li><a class= "home" href="#">DogGo</a></li>
-
-        <% if !logged_in? %>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Sign In", login_path %></li>
-        <% elsif current_user.admin? %>
-          <li><%= link_to "Welcome #{current_user.username}!", user_path(current_user) %></li>
-          <li><%= link_to "Find A Walker", users_path %></li>
-          <li><%= link_to "Add Dog", new_dog_path(current_user) %></li>
-          <li><%= link_to "Log Out", logout_path %></li>
-        <% else %>
-          <li><%= link_to "Welcome #{current_user.username}!", user_path(current_user) %></li>
-          <li><%= link_to "View Dogs", dogs_path %></li>
-          <li><%= link_to "Reserved Walks", user_walks_path(current_user) %></li>
-          <li><%= link_to "Log Out", logout_path %></li>
-       <% end %>
-        </ul>
+      <li><a class= "home" href="/">DogGo</a></li>
+          <%= render "/layouts/form" %>
+    </ul>
 
     <%= yield %>
-
 
   </body>
 
