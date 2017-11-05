@@ -16,20 +16,22 @@
 <div class = "info">
 
   <ul>
-    <li> Walk Time: <br><%= @walk.day %></li><br>
-    <li> <%= @walk.time_format%> </li>
+    <li> Walk Time: <br>
+
+      <%= @walk.day %> at </li><br>
+    <li> <%= @walk.time.strftime('%I:%M %p')%> </li>
+
       <br>
-
-  <form action="/users/<%=current_user.id %>/walks" method="get">
-    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-    <%= tag(:input, :type => "hidden", :name => :user_id, :value => current_user.id) %>
-    <%= tag(:input, :type => "hidden", :name => :dog_id, :value => @dog.id) %>
-      <input type="submit" value="Reserve Walk">
-
-
+<% if !@walk.reserved? %>
+    <form action="/users/<%= current_user.id%>/walks" method="post">
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <%= tag(:input, :type => "hidden", :name => :user_id, :value => current_user.id) %>
+      <%= tag(:input, :type => "hidden", :name => :dog_id, :value => @dog.id) %>
+        <input type="submit" value="Reserve Walk">
 <% else %>
-    "Reserved"
+  "Reserved"
   <% end %>
+
 </ul>
 </div>
 

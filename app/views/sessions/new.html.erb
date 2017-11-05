@@ -1,6 +1,9 @@
 <div class="container">
+  <h1>Log In</h1>
 
-  <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
+<%= form_for(:session, url: login_path) do |f| %>
+      <%= render '/sessions/error' %>
+      <br>
 
       <%= f.label :username %><br>
       <%= f.text_field :username %><br>

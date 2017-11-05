@@ -1,0 +1,12 @@
+-sessions -login
+  --won't display errors
+  --won't log me in
+-references
+  -on update - repeats the references
+  -won't let me delete the reference
+-take a walk
+  -every time you click on a dog show page it gets added to reserved walk
+  -does not changed from reserve walk button to "reserved"
+  -display walk time is off
+-scope method
+  -urgent_walk ?? is that okay

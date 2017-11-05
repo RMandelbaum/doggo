@@ -46,3 +46,41 @@ dogs = Dog.create([{
         age: 2,
         temperament: 'Hyper'
   }])
+
+  walks = Walk.create([{
+      user_id: 1,
+      dog_id: 1,
+      day: "Sunday",
+      time: 10 ,
+      reserved: false
+    },
+ {
+      user_id: 1,
+      dog_id: 1,
+      day: "Tuesday",
+      time: 10 ,
+      reserved: false
+    },
+ {
+      user_id: 1,
+      dog_id: 1,
+      day: "Wednesday",
+      time: 1 ,
+      reserved: false
+    },
+
+    {
+      user_id: 1,
+      dog_id: 2,
+      day: "Tuesday",
+      time: 12 ,
+      reserved: false
+      },
+    {
+      user_id: 2,
+      dog_id: 3,
+      day: "Monday",
+      time: 12 ,
+      reserved: false
+      }
+      ])

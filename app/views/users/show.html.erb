@@ -1,17 +1,11 @@
 <div class = "container">
   <div class = "info">
 
-          <h2><%= @user.username %></h2>
-
-          <% if current_user.bio.nil? || current_user.references.empty? %>
-          <h4 style = "color:red">Complete Your Profile:</h4>
-
-            <%= render 'form' %>
-          <% else %>
+          <h2><%= current_user.username %></h2>
             Bio:<br> <%= current_user.bio %>
             <br>
             <br>
-            References: <br>
+              References: <br>
             <ol>
               <% current_user.references.each do |reference| %>
                 Name: <%= reference.name %><br>
@@ -22,6 +16,6 @@
             </ol>
 
             <%= link_to "Edit Profile", edit_user_path(current_user) %>
-          <% end %>
+
     </div>
 </div>

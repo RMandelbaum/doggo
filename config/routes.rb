@@ -9,18 +9,15 @@ Rails.application.routes.draw do
 
 
   resources :users do
-    resources :walks, only: [:new, :index, :create]
+    resources :walks, only: [:new, :create, :index]
   end
 
-  resources :dogs do
-    resources :walks
-  end
 
-  resources :walks do
-    member do 
-      put 'reserved'
-    end
-  end
+  resources :dogs
+
+  get '/walks/urgent_walks' => 'walks#urgent_walk'
+
+
 
 
 

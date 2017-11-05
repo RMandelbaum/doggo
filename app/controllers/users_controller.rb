@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   skip_before_action :require_login, only: [:new, :create]
 
+  def index
+  end
 
   def new
     @user = User.new
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to users_path
     else
       render 'new'
     end
@@ -19,11 +21,11 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    1.times {current_user.references.build} unless !current_user.references.empty?
+    2.times {current_user.references.build}
   end
 
   def edit
-  @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
@@ -37,13 +39,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:name, :email, :phone_number])
+    params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:id, :name, :email, :phone_number, :_destroy])
   end
 
   def set_user
-    @user = current_user
-    if !current_user
-      flash[:message]= "no"
+    @user = User.find(params[:id])
     end
-  end
+
 end

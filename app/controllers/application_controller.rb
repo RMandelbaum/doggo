@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?
   before_action :require_login
   skip_before_action :require_login, only: [:home]
 
@@ -17,6 +16,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  helper_method :current_user
+  helper_method :logged_in?
+
 
   def require_login
     return head(:forbidden) unless session.include? :user_id

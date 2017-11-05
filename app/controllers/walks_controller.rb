@@ -5,30 +5,23 @@ class WalksController < ApplicationController
   end
 
   def new
-    @walk = Walk.new(user_id: params[:user_id], dog_id: params[:dog_id])
-    @walk.save
-    @message = @walk.take_walk
-
-    redirect_to dog_path(walk.dog, :message => @message)
-
-
+    @walk = Walk.new
   end
 
   def create
-    @dog = Dog.find_by(name: params[:name])
-    @walk = Walk.find_by(dog_id: @dog.id)
-    @walk.take_walk
-    redirect_to dogs_path(@dog)
+    @walk = Walk.new(user_id: params[:user_id], dog_id: params[:dog_id])
+    @walk.reserve_walk
+
+    redirect_to user_walks_path(current_user)
+
   end
 
-  def edit
+
+  def urgent_walk
+    @dogs = Dog.all
+    @walks = Walk.all
   end
 
-  def update
-    @walk.update_attributes()
-  end
 
-  def destroy
-    @walk.clear
-  end
+
 end

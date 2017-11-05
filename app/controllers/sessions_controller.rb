@@ -6,8 +6,9 @@ skip_before_action :require_login, only: [:new, :create]
   end
 
   def create
+
       if auth
-          user = User.find_or_create_by(uid: auth['uid']) do |u|
+          @user = User.find_or_create_by(uid: auth['uid']) do |u|
           u.username = auth['info']['name']
           u.email = auth['info']['email']
           u.password = auth['uid']
@@ -15,15 +16,17 @@ skip_before_action :require_login, only: [:new, :create]
           u.save!
           end
 
-          session[:user_id] = user.id
-          redirect_to user_path(user.id)
+          session[:user_id] = @user.id
+          redirect_to users_path
       else
-          user = User.find_by(username: params[:user][:username])
-          if user && user.authenticate(params[:user][:password])
-            session[:user_id] = user.id
-            redirect_to user_path(user.id)
+          @user = User.find_by(username: params[:session][:username])
+          if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+
+            redirect_to users_path 
+
           else
-            render 'new'
+            redirect_to login_path
           end
       end
     end
