@@ -17,9 +17,9 @@ class WalksController < ApplicationController
   end
 
 
-  def urgent_walk
+  def urgent_walks
     @dogs = Dog.all
-    @walks = Walk.all
+    @walk = Walk.urgent_walk
   end
 
 

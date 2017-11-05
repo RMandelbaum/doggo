@@ -7,7 +7,11 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
-    @walk = Walk.create(user_id: current_user.id, dog_id: @dog.id, day: "Monday", time: "10:00") #this is wrong
+    @walk = Walk.find(params[:id])
+    @walks = Walk.where(dog_id: @dog.id)
+
+    #this is wrong
+   #find all the walks where dog_id == @dog.id
   end
 
   def edit

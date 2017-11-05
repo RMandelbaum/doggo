@@ -4,7 +4,7 @@ class CreateWalks < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.integer :dog_id
       t.string :day
-      t.time :time
+      t.string :time
       t.boolean :reserved, default: false
 
       t.timestamps

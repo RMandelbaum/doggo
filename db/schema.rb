@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171104183232) do
     t.integer "user_id"
     t.integer "dog_id"
     t.string "day"
-    t.time "time"
+    t.string "time"
     t.boolean "reserved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -8,5 +8,7 @@
   -every time you click on a dog show page it gets added to reserved walk
   -does not changed from reserve walk button to "reserved"
   -display walk time is off
+-dog show page
+  -list all the walks for that dog
 -scope method
-  -urgent_walk ?? is that okay
+  -urgent_walk ??

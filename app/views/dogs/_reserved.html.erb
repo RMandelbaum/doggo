@@ -1,0 +1,5 @@
+<form action="/users/<%= current_user.id%>/walks" method="post">
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+  <%= tag(:input, :type => "hidden", :name => :user_id, :value => current_user.id) %>
+  <%= tag(:input, :type => "hidden", :name => :dog_id, :value => @dog.id) %>
+    <input type="submit" value="Reserve Walk">
