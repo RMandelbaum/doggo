@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -21,29 +21,27 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    2.times {current_user.references.build}
   end
+
 
   def edit
-    @user = User.find(params[:id])
+    render 'show'
   end
-
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
-    #bug--updates by adding both old and new references
     redirect_to user_path(@user)
   end
 
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:id, :name, :email, :phone_number, :_destroy])
-  end
+    def user_params
+      params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:id, :name, :email, :phone_number])
+    end
 
-  def set_user
-    @user = User.find(params[:id])
+    def set_user
+      @user = User.find(params[:id])
     end
 
 end

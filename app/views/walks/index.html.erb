@@ -1,8 +1,8 @@
 <div class = "container">
 <h1>Your Upcoming Walks: </h1>
-<ul>
+
   <% current_user.dogs.each do |dog| %>
-    <p><%= link_to dog.name, dog_path(dog) %>
+    <%= link_to dog.name, dog_path(dog) %>
     <% end %>
-</ul>
+
 </div>

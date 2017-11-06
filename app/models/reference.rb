@@ -4,7 +4,4 @@ class Reference < ApplicationRecord
   validates :name, presence: true
 
 
-  def delete
-    @reference = nil
-  end
 end

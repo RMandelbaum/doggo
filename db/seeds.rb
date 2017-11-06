@@ -82,5 +82,12 @@ dogs = Dog.create([{
       day: "Monday",
       time:"10:00 AM" ,
       reserved: false
+    },
+  {
+      user_id: 2,
+      dog_id: 4,
+      day: "Monday",
+      time:"10:00 AM" ,
+      reserved: false
       }
       ])

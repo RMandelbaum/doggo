@@ -1,14 +1,11 @@
 -sessions -login
   --won't display errors
-  --won't log me in
--references
-  -on update - repeats the references
-  -won't let me delete the reference
+  --if blank wont display errors but says nil class
 -take a walk
   -every time you click on a dog show page it gets added to reserved walk
   -does not changed from reserve walk button to "reserved"
   -display walk time is off
 -dog show page
-  -list all the walks for that dog
+  -showing reserved when it's not reserved
 -scope method
   -urgent_walk ??

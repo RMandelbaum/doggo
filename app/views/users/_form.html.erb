@@ -3,7 +3,7 @@
   <%= f.text_area :bio %><br><br>
   <%= f.label "References:" %><br>
 
-  <%= f.fields_for :references do |reference| %>
+  <%= f.fields_for :references, @user.references[0] || @user.references.build do |reference| %>
       <fieldset>
         <%= reference.label :name %><br>
         <%= reference.text_field :name %><br>
@@ -11,12 +11,19 @@
         <%= reference.text_field :phone_number %><br>
         <%= reference.label :email %><br>
         <%= reference.email_field :email %><br>
-        <%= reference.label :delete %>
-        <%= reference.check_box :_destroy %>
-
-
       </fieldset>
     <% end %>
 
-  <%= f.submit "Update Profile" %>
+  <%= f.fields_for :references, @user.references[1] || @user.references.build do |reference| %>
+      <fieldset>
+        <%= reference.label :name %><br>
+        <%= reference.text_field :name %><br>
+        <%= reference.label :phone_number %><br>
+        <%= reference.text_field :phone_number %><br>
+        <%= reference.label :email %><br>
+        <%= reference.email_field :email %><br>
+      </fieldset>
+    <% end %>
+
+  <%= f.submit "Save" %>
 <% end %>

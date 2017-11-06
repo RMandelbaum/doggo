@@ -17,17 +17,19 @@ skip_before_action :require_login, only: [:new, :create]
           end
 
           session[:user_id] = @user.id
-          redirect_to users_path
+          redirect_to user_path(@user)
       else
           @user = User.find_by(username: params[:session][:username])
-          if @user && @user.authenticate(params[:password])
+          if @user && @user.authenticate(params[:session][:password])
+
+
             session[:user_id] = @user.id
 
-            redirect_to users_path 
+            redirect_to user_path(@user)
 
           else
-            redirect_to login_path
-          end
+            render 'new'
+           end
       end
     end
 

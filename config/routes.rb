@@ -12,8 +12,7 @@ Rails.application.routes.draw do
     resources :walks, only: [:new, :create, :index]
   end
 
-
-  resources :dogs
+   resources :dogs
 
   get '/walks/urgent_walks' => 'walks#urgent_walk'
 

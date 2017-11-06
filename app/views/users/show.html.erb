@@ -2,7 +2,10 @@
   <div class = "info">
 
           <h2><%= current_user.username %></h2>
-            Bio:<br> <%= current_user.bio %>
+          <% if !current_user.bio || current_user.references.empty? %>
+          <%= render "form" %>
+          <% else %>
+             Bio:<br> <%= current_user.bio %>
             <br>
             <br>
               References: <br>
@@ -14,8 +17,8 @@
                 <br>
                 <% end %>
             </ol>
+        <% end %>
 
-            <%= link_to "Edit Profile", edit_user_path(current_user) %>
 
     </div>
 </div>

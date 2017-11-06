@@ -1,7 +1,7 @@
 class WalksController < ApplicationController
 
   def index
-    @walk = Walk.find_by(user_id: current_user.id)
+    @walks = Walk.where(user_id: current_user.id)
   end
 
   def new
@@ -13,7 +13,6 @@ class WalksController < ApplicationController
     @walk.reserve_walk
 
     redirect_to user_walks_path(current_user)
-
   end
 
 
@@ -21,7 +20,5 @@ class WalksController < ApplicationController
     @dogs = Dog.all
     @walk = Walk.urgent_walk
   end
-
-
 
 end
