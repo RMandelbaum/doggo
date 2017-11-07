@@ -6,15 +6,15 @@ class WalksController < ApplicationController
 
   def new
     @walk = Walk.new
+    @dog = Dog.find_by(params[:id])
   end
 
   def create
-    @walk = Walk.new(user_id: params[:user_id], dog_id: params[:dog_id])
-    @walk.reserve_walk
-
-    redirect_to user_walks_path(current_user)
+    @dog = Dog.find_by(params[:id])
+    @walk = Walk.new(day: params[:day], time: params[:time], dog_id: @dog.id)
+    @walk.save
+    redirect_to dog_path(@dog)
   end
-
 
   def urgent_walks
     @dogs = Dog.all

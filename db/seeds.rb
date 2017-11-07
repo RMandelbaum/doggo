@@ -11,6 +11,7 @@ users = User.create([
             email: "Rachel@gmail.com",
             password: "Password",
             bio: "I love Dogs!!",
+            admin: true
 
           },
           {
@@ -46,48 +47,3 @@ dogs = Dog.create([{
         age: 2,
         temperament: 'Hyper'
   }])
-
-  walks = Walk.create([{
-      user_id: 1,
-      dog_id: 1,
-      day: "Sunday",
-      time: "10:00 AM" ,
-      reserved: false
-    },
- {
-      user_id: 1,
-      dog_id: 1,
-      day: "Tuesday",
-      time: "10:00 AM" ,
-      reserved: false
-    },
- {
-      user_id: 1,
-      dog_id: 1,
-      day: "Wednesday",
-      time: "10:00 AM",
-      reserved: false
-    },
-
-    {
-      user_id: 1,
-      dog_id: 2,
-      day: "Tuesday",
-      time: "10:00 AM" ,
-      reserved: false
-      },
-    {
-      user_id: 2,
-      dog_id: 3,
-      day: "Monday",
-      time:"10:00 AM" ,
-      reserved: false
-    },
-  {
-      user_id: 2,
-      dog_id: 4,
-      day: "Monday",
-      time:"10:00 AM" ,
-      reserved: false
-      }
-      ])

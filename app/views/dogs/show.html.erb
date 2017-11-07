@@ -15,6 +15,11 @@
 
 <div class = "info">
   <ul>
+    <% if current_user.admin %>
+        <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
+      <% end %>
+    <br>
+
     Walk Times: <br>
       <% @walks.each do |walk| %>
           <li><%= walk.day %> at <%= walk.time %>

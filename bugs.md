@@ -9,3 +9,6 @@
   -showing reserved when it's not reserved
 -scope method
   -urgent_walk ??
+
+
+--user profile page can't be edited 
