@@ -19,13 +19,13 @@ skip_before_action :require_login, only: [:show]
   def update
     @dog = Dog.find(params[:id])
     @dog.update(dog_params)
-    binding.pry
+
     redirect_to dog_path(@dog)
   end
 
   private
 
   def dog_params
-    params.require(:dog).permit(:walks_attributes => [:day, :time])
+    params.require(:dog).permit(:walks_attributes => [:id, :reserved, :user_id])
 end
 end

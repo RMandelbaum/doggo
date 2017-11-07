@@ -23,15 +23,12 @@
     Walk Times: <br>
       <% @walks.each do |walk| %>
           <li><%= walk.day %> at <%= walk.time %>
-            <% if !walk.reserved? %>
-              <%= render "reserved" %>
-            <% else %>
-                <em>--Reserved</em>
-            <% end %>
-        </li>
+              <%if !current_user.admin %>
+                  <%= render partial: "reserved", locals: {walk: walk, dog: @dog} %>
+              <% end %>
+              </li>
           <% end %>
-
-</ul>
-</div>
+      </ul>
+    </div>
 
 </div>

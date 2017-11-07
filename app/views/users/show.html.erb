@@ -1,6 +1,8 @@
 <div class = "container">
   <div class = "info">
-
+    <% if current_user.admin %>
+      <h2>Welcome, <%= current_user.username %>!</h2>
+        <% else %>
           <h2><%= current_user.username %></h2>
           <% if !current_user.bio || current_user.references.empty? %>
           <%= render "form" %>
@@ -17,6 +19,7 @@
                 <br>
                 <% end %>
             </ol>
+        <% end %>
         <% end %>
 
 

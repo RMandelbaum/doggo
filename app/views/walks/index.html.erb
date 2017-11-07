@@ -3,6 +3,12 @@
 
   <% current_user.dogs.each do |dog| %>
     <%= link_to dog.name, dog_path(dog) %>
+    <%dog.walks.each do |walk| %>
+    <% if current_user.id == walk.user_id %>
+      <%= walk.day %>
+      <%= walk.time %>
+      <% end %>
+      <% end %>
     <% end %>
 
 </div>
