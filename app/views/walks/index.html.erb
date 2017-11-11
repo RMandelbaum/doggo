@@ -1,15 +1,24 @@
 <div class = "container">
-<h1>Your Upcoming Walks: </h1>
-
+<h1>Your Upcoming Walks</h1>
+<table>
   <% current_user.dogs.each do |dog| %>
-    <%= link_to dog.name, dog_path(dog) %>
-    <br>
+  <tr>
+    <th>Name</th>
+    <th>Day</th>
+    <th>Time</th>
+  </tr>
+  <tr>
+    <td><%= link_to dog.name, dog_path(dog) %></td>
+
       <%dog.walks.each do |walk| %>
       <% if current_user.id == walk.user_id %>
-        <%= walk.day %> at <%= walk.time %>
+        <td><%= walk.day %></td>
+        <td><%= walk.time %></td>
       <% end %>
-      <br>
+
       <% end %>
+    </tr>
     <% end %>
+</table>
 
 </div>

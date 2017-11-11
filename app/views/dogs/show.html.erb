@@ -1,38 +1,45 @@
 <div class="container">
 
-<div class = "left-pic">
-  <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
-</div>
+  <div class = "left-pic">
+    <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
+  </div>
 
-<div class = "info">
-  <ul>
-    <li>Name: <%= @dog.name %></li><br>
-    <li>Breed: <%= @dog.breed %></li><br>
-    <li>Age: <%= @dog.age %></li></br>
-    <li>Temperament: <%= @dog.temperament %></li><br>
-  </ul>
-</div>
-
-<div class = "info">
-  <ul>
+  <div class = "info">
+    <ul>
+      <li>Name: <%= @dog.name %></li><br>
+      <li>Breed: <%= @dog.breed %></li><br>
+      <li>Age: <%= @dog.age %></li></br>
+      <li>Temperament: <%= @dog.temperament %></li><br>
+    </ul>
+  </div>
 
 
-    <b>Walk Times:</b>
-      <% @walks.each do |walk| %>
-      <br>
-          <li><%= walk.day %> at <%= walk.time %>
+  <div class = "info">
+
+    <table>
+      <center><b>Walk Times</b></center>
+
+        <% @walks.each do |walk| %>
+            <tr>
+              <th> Day </th>
+              <th> Time </th>
+              <th> Reservation </th>
+            </tr>
+            <tr>
+              <td> <%= walk.day %></td>
+              <td> <%= walk.time %></td>
               <%if !current_user.admin %>
-                  <%= render partial: "reserved", locals: {walk: walk, dog: @dog} %>
-              <% end %>
-
-            </li><br>
-          <% end %>
-          <br>
-          <% if current_user.admin %>
-              <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
+              <td><%= render partial: "reserved", locals: {walk: walk, dog: @dog} %></td>
             <% end %>
-          <br>
-      </ul>
-    </div>
+          </tr>
 
+      <% end %>
+
+    </table><br>
+    <center>
+      <% if current_user.admin %>
+        <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
+      <% end %>
+    </center>
+  </div>
 </div>

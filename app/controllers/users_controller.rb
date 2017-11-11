@@ -21,13 +21,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
   end
 
 
   def edit
-    render 'show'
   end
+
   def update
     @user = current_user
     @user.update(user_params)
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
 end

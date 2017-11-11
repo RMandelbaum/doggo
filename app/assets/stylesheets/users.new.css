@@ -11,6 +11,7 @@ font-weight: 400;
 line-height: 1.4;
 width: 500px;
 margin: auto;
+text-align: center;
 
 }
 
@@ -23,14 +24,15 @@ margin: auto;
   display: inline-block;
   background-color: #EEEEEE;
   text-align: left;
-  border-radius: 7px;
+  border-radius: 2px;
   vertical-align: middle;
-  margin: 10px;
+  margin: auto;
   width: 400px;
 }
 
 .left-pic{
-    float: left;
     position: relative;
-    margin: 5px;
+    margin: auto;
+    left: 20px;
+
 }

@@ -1,8 +1,17 @@
 <div class = "container">
   <h1>Walks for <%=Time.now.strftime("%A, %m/%d/%Y")%> </h1>
+  <table>
   <% @walks.each do |walk| %>
     <% if walk.day == Time.now.strftime("%A") %>
-      <%= link_to walk.dog.name, dog_path(walk.dog) %> at <%= walk.time %>
+    <tr>
+      <th>Name</th>
+      <th>Time</th>
+    </tr>
+    <tr>
+      <td><%= link_to walk.dog.name, dog_path(walk.dog) %></td> 
+      <td><%= walk.time %></td>
+    </tr>
       <% end %>
       <% end %>
+    </table>
 </div>
