@@ -1,16 +1,12 @@
--sessions -login
-  --won't display errors
-  --if blank wont display errors but says nil class
--take a walk
-  --click reserve--gets added to user reserved walks page
-  --click unreserved -- doesn't change back and delete reserve walks from page 
--scope method
-  -urgent_walk ??
-
-
---user profile page can't be edited
---user admin can create walks but user_id is always theirs
---creating walks for dog/3 gets posted to dog/1
+1. Session login
+  -wont display errors --instead renders new page or if blank says nil class
+2. Adding a new walk
+    --admin side: wont post new walk to the correct dog
+3. Reserve Walk
+  --Click reserve--shows up on users reserved walk page
+  --Click unreserve -- I want it to delete from users page (change the user_id back to admin user id of 1??)
+4. Scope Method 
+-- change urgent page to a scope method
 
 
 <!-- <input id="hidden" type="hidden" name="_method" value="patch">

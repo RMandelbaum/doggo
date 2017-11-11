@@ -18,6 +18,7 @@ skip_before_action :require_login, only: [:show]
 
   def update
     @dog = Dog.find(params[:id])
+    binding.pry
     @dog.update(dog_params)
 
     redirect_to dog_path(@dog)

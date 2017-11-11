@@ -1,10 +1,10 @@
 <div class= "container">
-  <h2>Create a new walk for <%= @dog.name %></h2>
-    <%= form_for @walk, url: dog_path(@dog) do |f| %>
-      <%= f.label :day %>
+  <h2>Create a New Walk for <%= @walk.dog.name %></h2>
+    <%= form_for @walk, url: dog_walks_path(@walk.dog) do |f| %>
+      <%= f.label :day %><br>
       <%= f.text_field :day %> <br>
-      <%= f.label :time %>
+      <%= f.label :time, "Time (HH:MM AM/PM)" %><br>
       <%= f.text_field :time %> <br>
       <%= f.submit %>
     <% end %>
-    </div>
+</div>

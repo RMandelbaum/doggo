@@ -1,0 +1,7 @@
+<% if !walk.reserved %>
+  <%= f.submit "Reserve"%>
+<% elsif walk.user_id == current_user.id %>
+  <%= f.submit "Unreserve" %>
+<% else %>
+  <b>Reserved</b>
+<% end %>

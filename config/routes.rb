@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   end
 
    resources :dogs do
-     resources :walks, only: [:new, :create, :destroy]
+     resources :walks, only: [:new, :create, :update]
    end
 
 
-  get '/walks/urgent_walks' => 'walks#urgent_walk'
+  get '/walks/urgent_walks' => 'walks#urgent_walks'
 
-post '/dogs/:id' => 'walks#create'
+#post '/dogs/:id/' => 'walks#create'
 
 
 

@@ -15,19 +15,23 @@
 
 <div class = "info">
   <ul>
-    <% if current_user.admin %>
-        <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
-      <% end %>
-    <br>
 
-    Walk Times: <br>
+
+    <b>Walk Times:</b>
       <% @walks.each do |walk| %>
+      <br>
           <li><%= walk.day %> at <%= walk.time %>
               <%if !current_user.admin %>
                   <%= render partial: "reserved", locals: {walk: walk, dog: @dog} %>
               <% end %>
-              </li>
+
+            </li><br>
           <% end %>
+          <br>
+          <% if current_user.admin %>
+              <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
+            <% end %>
+          <br>
       </ul>
     </div>
 

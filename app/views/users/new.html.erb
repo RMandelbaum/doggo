@@ -2,7 +2,7 @@
     <h1>Sign Up</h1>
       <div>
         <%= form_for @user do |f| %>
-            <%= render '/sessions/error' %>
+            <%= render partial: '/sessions/error', locals: {current_user: @user} %>
             <br>
               <%= f.label :username %><br>
               <%= f.text_field :username%><br>

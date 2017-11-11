@@ -2,7 +2,7 @@
   <h1>Log In</h1>
 
 <%= form_for(:session, url: login_path) do |f| %>
-      <%= render '/sessions/error' %>
+      <%= render partial: '/sessions/error', locals: {current_user: @user} %>
       <br>
 
       <%= f.label :username %><br>
