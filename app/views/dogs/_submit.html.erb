@@ -1,7 +1,8 @@
 <% if !walk.reserved %>
   <%= f.submit "Reserve Walk"%>
 <% elsif walk.user_id == current_user.id %>
-  <b style ="color:red";>Reserved</b> <br><%= f.submit "Cancel Walk" %>
+  <b style ="color:red";>Reserved</b><br>
+  <%= f.submit "Cancel Walk" %>
 <% else %>
   <b style ="color:red";>Reserved</b>
 <% end %>

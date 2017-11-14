@@ -27,10 +27,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     @user.update(user_params)
-    # @user.references[0].update(name: params[:name], email: params[:email], phone_number: params[:phone_number])
-    # @user.references[1].update(name: params[:name], email: params[:email], phone_number: params[:phone_number])
+
     redirect_to user_path(@user)
   end
 

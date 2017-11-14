@@ -1,6 +1,8 @@
 <div class= "user">
   <h2>Create a New Walk for <%= @walk.dog.name %></h2>
     <%= form_for @walk, url: dog_walks_path(@walk.dog) do |f| %>
+    <%= render partial: '/sessions/error', locals: {current_user: @walk} %>
+    <br>
       <%= f.label :day %><br>
       <%= f.text_field :day %> <br>
       <%= f.label :time, "Time (HH:MM AM/PM)" %><br>

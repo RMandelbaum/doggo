@@ -1,10 +1,8 @@
 class DogsController < ApplicationController
-skip_before_action :require_login, only: [:show]
 
   def index
     @dogs = Dog.all
   end
-
 
   def show
     @dog = Dog.find(params[:id])
@@ -12,13 +10,13 @@ skip_before_action :require_login, only: [:show]
     @walks = Walk.where(dog_id: @dog.id)
   end
 
-  def edit
-    render 'show'
-  end
+  # def edit
+  #   @dog = Dog.find(params[:id])
+  #   redirect_to dog_path(@dog)
+  # end
 
   def update
     @dog = Dog.find(params[:id])
-    binding.pry
     @dog.update(dog_params)
 
     redirect_to dog_path(@dog)
@@ -26,7 +24,7 @@ skip_before_action :require_login, only: [:show]
 
   private
 
-  def dog_params
-    params.require(:dog).permit(:walks_attributes => [:id, :reserved, :user_id])
-end
+    def dog_params
+      params.require(:dog).permit(:walks_attributes => [:id, :reserved, :user_id])
+    end
 end

@@ -1,19 +1,17 @@
 <div class="container">
     <div class = "info">
       <h1><center><%= @dog.name %></center></h1>
-
       <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
       <ul>
         <li>Breed: <%= @dog.breed %></li><br>
         <li>Age: <%= @dog.age %></li></br>
         <li>Temperament: <%= @dog.temperament %></li><br>
-
       </ul>
 
       <br>
+
       <table>
         <center><b>Walk Times</b></center>
-
           <% @walks.each do |walk| %>
               <tr>
                 <th> Day </th>
@@ -26,7 +24,6 @@
                 <td><%= render partial: "reserved", locals: {walk: walk, dog: @dog} %></td>
             </tr>
           <% end %>
-
       </table><br>
       <center>
         <% if current_user.admin %>

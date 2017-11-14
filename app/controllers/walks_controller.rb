@@ -5,16 +5,23 @@ class WalksController < ApplicationController
   end
 
   def new
-    @walk = Walk.new(dog_id: params[:dog_id])
-    @dog = Dog.find_by(params[:id])
+    if current_user.admin?
+      @walk = Walk.new(dog_id: params[:dog_id])
+      @dog = Dog.find_by(params[:id])
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
     @user = current_user
     @dog = Dog.find_by(id: params[:dog_id])
     @walk = Walk.new(day: params[:walk][:day], time: params[:walk][:time], dog_id: @dog.id, user_id: @user.id)
-    @walk.save
-    redirect_to dog_path(@walk.dog)
+    if @walk.save
+     redirect_to dog_path(@walk.dog)
+    else
+      render 'new'
+    end
   end
 
   def edit

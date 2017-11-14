@@ -1,6 +1,5 @@
 <%= form_for walk, url: dog_walk_path(dog, walk) do |f| %>
-
        <%= f.hidden_field :reserved, value: !walk.reserved %>
        <%= f.hidden_field :user_id, value: !walk.reserved ? current_user.id : 1 %>
-<%= render partial: "submit", locals: {walk: walk, f: f} %>
+       <%= render partial: "submit", locals: {walk: walk, f: f} %>
 <% end %>
