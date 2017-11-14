@@ -1,5 +1,9 @@
 1. Session login
-  -wont display errors --instead renders new page or if blank says nil class
+    --logic seems an overkill
+    --there is no current_user so error message doesn't work 
+    -- also why are my params [:session][:username]
 2. Scope Method
 -- change urgent page to a scope method
-3. Update references is not working--unique with nested attributes :id
+-- find out what qualifies??
+3. References
+    1. refactor create and update methods

@@ -1,45 +1,37 @@
 <div class="container">
+    <div class = "info">
+      <h1><center><%= @dog.name %></center></h1>
 
-  <div class = "left-pic">
-    <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
-  </div>
+      <img src = "http://www.foxtwoodkennels.co.uk/images/kennels-thumb.jpg">
+      <ul>
+        <li>Breed: <%= @dog.breed %></li><br>
+        <li>Age: <%= @dog.age %></li></br>
+        <li>Temperament: <%= @dog.temperament %></li><br>
 
-  <div class = "info">
-    <ul>
-      <li>Name: <%= @dog.name %></li><br>
-      <li>Breed: <%= @dog.breed %></li><br>
-      <li>Age: <%= @dog.age %></li></br>
-      <li>Temperament: <%= @dog.temperament %></li><br>
-    </ul>
-  </div>
+      </ul>
 
+      <br>
+      <table>
+        <center><b>Walk Times</b></center>
 
-  <div class = "info">
-
-    <table>
-      <center><b>Walk Times</b></center>
-
-        <% @walks.each do |walk| %>
-            <tr>
-              <th> Day </th>
-              <th> Time </th>
-              <th> Reservation </th>
+          <% @walks.each do |walk| %>
+              <tr>
+                <th> Day </th>
+                <th> Time </th>
+                <th> Reservation </th>
+              </tr>
+              <tr>
+                <td> <%= walk.day %></td>
+                <td> <%= walk.time %></td>
+                <td><%= render partial: "reserved", locals: {walk: walk, dog: @dog} %></td>
             </tr>
-            <tr>
-              <td> <%= walk.day %></td>
-              <td> <%= walk.time %></td>
-              <%if !current_user.admin %>
-              <td><%= render partial: "reserved", locals: {walk: walk, dog: @dog} %></td>
-            <% end %>
-          </tr>
+          <% end %>
 
-      <% end %>
-
-    </table><br>
-    <center>
-      <% if current_user.admin %>
-        <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
-      <% end %>
-    </center>
+      </table><br>
+      <center>
+        <% if current_user.admin %>
+          <%= link_to "Add Walk", new_dog_walk_path(@dog) %>
+        <% end %>
+      </center>
   </div>
 </div>

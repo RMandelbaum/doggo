@@ -1,7 +1,6 @@
 .container{
   background: #fff;
 -webkit-box-shadow: 0 3px 0 #ddd;
-box-shadow: 3px 3px 3px 3px #ddd;
 margin-bottom: 20px;
 padding: 50px 300px 50px 300px;
 font-family: inherit;
@@ -14,6 +13,21 @@ margin: auto;
 text-align: center;
 
 }
+.user{
+  background: #fff;
+-webkit-box-shadow: 0 3px 0 #ddd;
+margin-bottom: 20px;
+padding: 50px 300px 50px 300px;
+font-family: inherit;
+color: inherit;
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+width: 500px;
+margin: auto;
+text-align: left;
+
+}
 
 .wrapper{
   width: 750px;
@@ -22,17 +36,12 @@ text-align: center;
 .info{
   padding: 20px;
   display: inline-block;
-  background-color: #EEEEEE;
   text-align: left;
   border-radius: 2px;
   vertical-align: middle;
   margin: auto;
   width: 400px;
-}
+  box-shadow: 3px 3px 3px 3px #ddd;
 
-.left-pic{
-    position: relative;
-    margin: auto;
-    left: 20px;
 
 }

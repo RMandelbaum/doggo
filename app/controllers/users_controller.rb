@@ -23,13 +23,14 @@ class UsersController < ApplicationController
   def show
   end
 
-
   def edit
   end
 
   def update
-    @user = current_user
+    binding.pry
     @user.update(user_params)
+    # @user.references[0].update(name: params[:name], email: params[:email], phone_number: params[:phone_number])
+    # @user.references[1].update(name: params[:name], email: params[:email], phone_number: params[:phone_number])
     redirect_to user_path(@user)
   end
 
@@ -37,8 +38,9 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:id, :name, :email, :phone_number])
+      params.require(:user).permit(:username, :email, :password, :bio, references_attributes: [:id, :name, :email, :phone_number, :user_id])
     end
+
 
     def set_user
       @user = current_user

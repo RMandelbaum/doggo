@@ -5,12 +5,17 @@ class User < ApplicationRecord
   has_secure_password
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
-  #accepts_nested_attributes_for :references, :allow_destroy => true
+  #accepts_nested_attributes_for :references, :update_only => true
 
 def references_attributes=(attributes)
    attributes.each do |key, reference_hash|
-        self.references.new(reference_hash) 
-     end
+       if reference_hash[:id]
+          reference = Reference.find(reference_hash[:id])
+          reference.update(reference_hash)
+        else
+          self.references.new(reference_hash)
+       end
+   end
    end
 
 

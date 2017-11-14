@@ -4,13 +4,13 @@ class Walk < ApplicationRecord
   # scope :urgent_walk, -> { where(day: 'Time.now.strftime("%A")')}
   #
   #
-  # def urgent_walks
-  #   if self.day == Time.now.strftime("%A")
-  #       @dog = Dog.find_by(id: self.dog_id)
-  #       @dog.name
-  #   end
-  #
-  #   end
+  def urgent_walks
+    if self.day == Time.now.strftime("%A")
+        @dog = Dog.find_by(id: self.dog_id)
+        @dog.name
+    end
+
+    end
 
 
 

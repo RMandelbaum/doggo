@@ -2,13 +2,13 @@
   <h1>Walks for <%=Time.now.strftime("%A, %m/%d/%Y")%> </h1>
   <table>
   <% @walks.each do |walk| %>
-    <% if walk.day == Time.now.strftime("%A") %>
+    <% if walk.urgent_walks %>
     <tr>
       <th>Name</th>
       <th>Time</th>
     </tr>
     <tr>
-      <td><%= link_to walk.dog.name, dog_path(walk.dog) %></td> 
+      <td><%= link_to walk.dog.name, dog_path(walk.dog) %></td>
       <td><%= walk.time %></td>
     </tr>
       <% end %>
