@@ -1,8 +1,8 @@
-# README
+# DogGo
 
 This app allows for two different types of users, a dog walker and an administrator.
 
-##Dog Walker
+## Dog Walker
 
 Sign Up/Login with email or Facebook.
 Create a profile with a bio and two references.
@@ -10,7 +10,7 @@ View a list of dogs and view an individual dog’s profile page, listing details
 View all the available walk time slots, and reserve that walk time. If they couldn’t do the walk anymore, the user has the option to cancel the walk.
 View all their upcoming walks, and also view a page that listed dog walks that were still available and urgent.
 
-##Administrator
+## Administrator
 
 View all the dog walkers, listing names and emails.
 View all the dogs and their individual profile page.
