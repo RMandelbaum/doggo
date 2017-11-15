@@ -8,12 +8,12 @@
     </tr>
     <% @walks.each do |walk| %>
       <tr>
-          <td> <%= link_to walk.dog.name, dog_path(walk.dog) %></td>
-          <td> <%= link_to walk.user.username, '#' %></td>
-
-        <td> <%= walk.day %></td>
-        <td> <%= walk.time %></td>
-
+          <% if walk.reserved? %>
+              <td> <%= link_to walk.dog.name, dog_path(walk.dog) %></td>
+              <td> <%= link_to walk.user.username, '#' %></td>
+              <td> <%= walk.day %></td>
+              <td> <%= walk.time %></td>
+            <% end %>
           <% end %>
       </tr>
     </table>
