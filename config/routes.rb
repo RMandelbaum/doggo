@@ -19,9 +19,7 @@ Rails.application.routes.draw do
 
   get '/walks/urgent_walks' => 'walks#urgent_walks'
 
-#post '/dogs/:id/' => 'walks#create'
 
-
-
+  get '/walks/reserved_walks' => 'walks#reserved_walks'
 
 end

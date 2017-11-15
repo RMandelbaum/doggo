@@ -1,0 +1,20 @@
+<div class = "container">
+  <table>
+      <th>Dog</th>
+      <th>Walker</th>
+
+      <th>Day</th>
+      <th>Time</th>
+    </tr>
+    <% @walks.each do |walk| %>
+      <tr>
+          <td> <%= link_to walk.dog.name, dog_path(walk.dog) %></td>
+          <td> <%= link_to walk.user.username, '#' %></td>
+
+        <td> <%= walk.day %></td>
+        <td> <%= walk.time %></td>
+
+          <% end %>
+      </tr>
+    </table>
+</div>

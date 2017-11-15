@@ -39,6 +39,15 @@ class WalksController < ApplicationController
     @walks = Walk.urgent_walks
   end
 
+  def reserved_walks
+    if current_user.admin?
+      @walks = Walk.all
+      @user = User.all
+    else
+      redirect_to '/'
+    end
+  end
+
   private
 
   def walk_params
