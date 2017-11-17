@@ -2,7 +2,7 @@
 
 This app allows for two different types of users, a dog walker and an administrator.
 
-## Dog Walker
+### Dog Walker
 
 1. Sign Up/Login with email or Facebook.
 2. Create a profile with a bio and two references.
@@ -10,7 +10,7 @@ This app allows for two different types of users, a dog walker and an administra
 4. View all the available walk time slots, and reserve that walk time. If they couldn’t do the walk anymore, the user has the option to cancel the walk.
 5. View all their upcoming walks, and also view a page that listed dog walks that were still available and urgent.
 
-## Administrator
+### Administrator
 
 1. View all the dog walkers, listing names and emails.
 2. View all the dogs and their individual profile page.
