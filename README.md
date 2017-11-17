@@ -16,3 +16,23 @@ This app allows for two different types of users, a dog walker and an administra
 2. View all the dogs and their individual profile page.
 3. Add a new walk to the dog’s profile page.
 4. View all the walks that are reserved, listing the associated dog name, walker’s name, and time of walk.
+
+## Installation
+
+$ git clone https://github.com/RMandelbaum/doggo
+
+$ cd doggo
+
+$ bundle install
+
+$ rake migrations
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/RMandelbaum/doggo
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+## License
+
+The application is available as open source under the terms of the <a href = "https://opensource.org/licenses/MIT">MIT License</a>.
