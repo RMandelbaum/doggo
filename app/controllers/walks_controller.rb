@@ -42,7 +42,11 @@ class WalksController < ApplicationController
   def reserved_walks
     if current_user.admin?
       @walks = Walk.all
-      @user = User.all
+      # @walks.each do 
+      # # @users = User.all
+      # @walk = Walk.find_by(params[:id])
+      # @user = User.find_by(id: @walk.user_id)
+      # binding.pry
     else
       redirect_to '/'
     end

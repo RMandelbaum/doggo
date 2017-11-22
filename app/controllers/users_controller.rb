@@ -21,6 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    # @walk = Walk.find_by(params[:id])
+    # @user = User.find_by(id: @walk.user_id)
+    # binding.pry
   end
 
   def edit
