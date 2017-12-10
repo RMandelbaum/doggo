@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
  gem 'omniauth-facebook'
  gem 'dotenv-rails'
+ gem 'active_model_serializers'
+ gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

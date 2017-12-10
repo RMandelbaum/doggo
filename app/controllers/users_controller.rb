@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+     render 'users/index', layout: false
+    #render json: @users
+
   end
 
   def new
