@@ -8,6 +8,7 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     @walk = Walk.find(params[:id]) if @walk
     @walks = Walk.where(dog_id: @dog.id)
+    render json: @dog
   end
 
   # def edit
