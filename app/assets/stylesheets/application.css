@@ -73,7 +73,9 @@ p{
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 70%;
+    margin: auto;
+    table-layout: fixed
 }
 
 td, th {
@@ -125,4 +127,9 @@ text-align: left;
   box-shadow: 3px 3px 3px 3px #ddd;
 
 
+}
+
+.side-info{
+  text-align: right;
+  float: right;
 }
