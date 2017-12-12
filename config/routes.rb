@@ -14,10 +14,13 @@ Rails.application.routes.draw do
 
    resources :dogs do
      resources :walks, only: [:new, :create, :update]
+     resources :comments, :only => [:create, :destroy]
+
    end
 
 
   get '/walks/urgent_walks' => 'walks#urgent_walks'
   get '/walks/reserved_walks' => 'walks#reserved_walks'
+
 
 end

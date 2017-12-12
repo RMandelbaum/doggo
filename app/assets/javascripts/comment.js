@@ -8,5 +8,5 @@ class Comment{
 Comment.prototype.username
 
 function createComment(){
-  alert("comment")
+  $(".comments").append("<form><input type='text'></form>")
 }
