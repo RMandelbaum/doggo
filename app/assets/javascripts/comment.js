@@ -6,7 +6,3 @@ class Comment{
 }
 
 Comment.prototype.username
-
-function createComment(){
-  $(".comments").append("<form><input type='text'></form>")
-}

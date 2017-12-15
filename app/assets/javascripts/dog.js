@@ -18,15 +18,22 @@ $(function (){
         $('#show-dog').hide()
       })
 
-   $('#show-dog').append("     <a href = '#' class='comments'>Comments</a>")
+   $('#show-dog').append("     <a href = '/comments' class='comments'>Comments</a>")
     $(".comments").click(function(event){
-     event.preventDefault();
-     createComment();
-   })
+      event.preventDefault();
+      $.ajax({
+        method: "GET",
+        url: "/comments/1"
+      }).done(function(data){
+        data.forEach(function(comment){
+          $("#show-comments").append(comment["body"])
         })
-    $(".hide-me").hide()
+      })
+
+        })
+    $(".hide-me").hide();
 
 
+  })
 })
-
 })

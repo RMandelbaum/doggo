@@ -16,12 +16,13 @@ class CommentsController < ApplicationController
     @comment.save
 
     redirect_to comments_path
-
-
   end
 
   def show
-  end
+    @dog = Dog.find_by(params[:id])
+    @comments = Comment.where(dog_id: @dog.id)
+    render json: @comments
+end
 
 
 private

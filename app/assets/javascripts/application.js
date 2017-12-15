@@ -15,5 +15,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require user
-
+//= require dog
+//= require comment
 //= require_tree .
