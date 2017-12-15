@@ -1,0 +1,6 @@
+<%= form_for @comment do |f| %>
+<h1>Special requirements for <%= @dog.name%></h1>
+<%= f.label :special_requirements %><br>
+<%= f.text_area :body %><br>
+<%= f.submit :submit %>
+<% end %>

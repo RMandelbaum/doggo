@@ -47,3 +47,16 @@ dogs = Dog.create([{
         age: 2,
         temperament: 'Hyper'
   }])
+
+comments = Comment.create([{
+    body: "This dog barks a lot.",
+    dog_id: 1
+  },
+  {
+    body: "Pulls a lot",
+    dog_id: 2
+  },
+  {
+    body: "Be careful around children",
+    dog_id: 3
+  }])

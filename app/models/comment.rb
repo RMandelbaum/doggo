@@ -1,3 +1,3 @@
 class Comment < ActiveRecord::Base
-  belongs_to :dogs
+  belongs_to :dog
 end
