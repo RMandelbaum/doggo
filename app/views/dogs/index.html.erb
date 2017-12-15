@@ -3,7 +3,9 @@
   <% @dogs.each do |dog| %>
     <li class="dogs"><%= link_to image_tag('https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg') + dog.name, dog_path(dog) %></li><br>
     <div id="show-dog"></div>
-    <div id="show-comments"></div>
+    <div id="show-comments">
+     <div id="new-comments"></div>
+    </div>
 
   <% end %>
 
