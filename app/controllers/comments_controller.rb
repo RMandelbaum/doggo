@@ -5,18 +5,14 @@ class CommentsController < ApplicationController
      render :json => @comments
   end
 
-  # def new
-  #   @dog = Dog.find_by(params[:id])
-  #   @comment = Comment.new(dog_id: @dog.id)
-  # end
-  #
-  # def create
-  #   @dog = Dog.find_by(params[:id])
-  #   @comment = Comment.new(dog_id: @dog.id, body: params[:body])
-  #   @comment.save
-  #
-  #   redirect_to comments_path
-  # end
+  def new
+    @comment = Comment.new
+  end
+
+  def create
+    @comment = Comment.create(comment_params)
+    render json: @comment
+  end
 
   def show
     @dog = Dog.find_by(params[:id])
@@ -27,8 +23,8 @@ end
 
 private
 
-# def params_comments
-#   params.require(:comments).permit(:dog_id, :body)
-# end
+def comment_params
+  params.require(:comment).permit(:body)
+end
 
 end
