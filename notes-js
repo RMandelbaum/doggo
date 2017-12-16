@@ -2,14 +2,28 @@ Adding Jquery to admin side of the app only:
 
 Bugs:
 
+**/dogs/1/comments isn't changing when its /dog/2/comments (stays as dog/1) --index/show pages are only showing dog_id 1
+[changed it to @dog = Dog.find(params[:dog_id].to_i)] --> works but maybe this is incorrect
+
+
 User Index Page
-1. Am I using the serialization method for the requirement?
-2. When I'm on different page, other than home it doe
+1. When I'm on different page, other than home it doesn't go/sometimes it renders, othertimes it doesn't
+
 
 Dog Show Page
-1. how do i get id for each dog
-2. click each time adds, make it just go once-maybe hide button
+1. how do i get id for each dog--right now only working off on dog
+2. Sometimes it renders, othertimes it doesn't
 3. less button-once its clicked, cant see page again
+4. click buttons renders ajax a few times
+
+comments
+1. id is hard coded
+2. submitting form through ajax isn't working
+3. Is the rails version correct? nested resource?
+4. json version of backend is saving twice?
+
+Created class object
+1. How?
 
 REQUIREMENTS
 1. Must render at least one index page (index resource - 'list of things') via jQuery and an Active Model Serialization JSON Backend. For example, in a blog domain with users and posts, you might display the index of the users posts on the users show page, fetching the posts via an AJAX GET request, with the backend rendering the posts in JSON format, and then appending the posts to the page.
@@ -27,4 +41,4 @@ REQUIREMENTS
 
 5. Must translate the JSON responses into Javascript Model Objects. The Model Objects must have at least one method on the prototype. Formatters work really well for this.
 Borrowing from the previous example, instead of plainly taking the JSON response of the newly created comment and appending it to the DOM, you would create a Comment prototype object and add a function to that prototype to perhaps concatenate (format) the comments authors first and last name. You would then use the object to append the comment information to the DOM.
---turn comments into an object 
+--turn comments into an object

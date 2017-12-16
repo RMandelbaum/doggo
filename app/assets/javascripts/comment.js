@@ -16,9 +16,9 @@ function showComments(){
     }
 
 function getComment(){
-  $.get("/comments/1", function(data){
+  $.get("/dogs/1/comments/1", function(data){
       data.forEach(function(comment){
-        $(".comment-div").append("<br><br>" + comment["body"])
+        $(".comment-div").append("<div id='comment-body'><br><br>" + comment["body"] + "</div>")
       })
       $(".comment-div").append("<br><button id='add-comment' onclick='addComment();'>Add Info</button>")
 
@@ -32,7 +32,7 @@ function addComment(){
   $('form').submit(function(event){
     event.preventDefault();
      var values= $(this).serialize();
-     var url = '/comments';
+     var url = '/dogs/1/comments';
      $.post(url, values).done(function(data){
        $('.comment-div').text(data["body"])
      })

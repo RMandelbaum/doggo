@@ -183,3 +183,21 @@ h4 {
   border-top: 5px double grey;*/
 
 }
+
+#comment-body{
+  text-align: left;
+  position: relative;
+  left: 100px;
+}
+
+#add-comment{
+  position: relative;
+  float: left;
+  left: 100px;
+}
+
+.field{
+  text-align: left;
+  position: relative;
+  left: 100px;
+  margin-bottom: 30px;

@@ -11,13 +11,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :walks, only: [:new, :create, :index]
   end
-  resources :comments, only: [:new, :create, :show, :index]
 
 
    resources :dogs do
      resources :walks, only: [:new, :create, :update]
-
-
+     resources :comments
    end
 
 
