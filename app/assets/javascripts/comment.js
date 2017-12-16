@@ -11,12 +11,13 @@ function showComments(){
  $('#show-dog').after("<div class='comment-div'><a href = '/comments' class='comments'>Additional Information</a></div>")
   $(".comments").click(function(event){
     event.preventDefault();
-    getComment();
+    getComment()
+
       })
     }
 
 function getComment(){
-  $.get("/dogs/1/comments/1", function(data){
+  $.get("/dogs/1/comments", function(data){
       data.forEach(function(comment){
         $(".comment-div").append("<div id='comment-body'><br><br>" + comment["body"] + "</div>")
       })
@@ -27,15 +28,33 @@ function getComment(){
 
 function addComment(){
   $('button').hide()
-  $("#show-comments").append("<form action=''><div class='field'><input type='text_area' name='body' placeholder='add new information here'><input type='submit'></div></form>")
+  $("#show-comments").append("<form><div class='field'><input type='text_area' name='body' placeholder='add new information here'><input type='submit'></div></form>")
 
   $('form').submit(function(event){
     event.preventDefault();
-     var values= $(this).serialize();
-     var url = '/dogs/1/comments';
-     $.post(url, values).done(function(data){
-       $('.comment-div').text(data["body"])
-     })
+    var url = "/dogs/1/comments"
+    data= {
+     'authenticity token': $("input[name='authenticity_token']").val(),
+      'comment':  {
+          'body': $("input[name='body']").val()
+
+        }
+      }
+
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: data,
+          success: function(response){
+            $(".comment-div").append("<div id='comment-body'><br><br>" + response["body"] + "</div>")
+            $("input[name='body']").val("");
+          },
+        });
+
+    //  $.post(url, data).done(function(response){
+    //    alert(data)
+    //    $('.comment-div').text(data["body"])
+    //  })
 
 
   })

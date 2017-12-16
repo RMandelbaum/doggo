@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def index
     @dog = Dog.find(params[:dog_id].to_i)
     @comments = Comment.where(dog_id: @dog.id)
-    #  render :json => @comments
+    render :json => @comments
   end
 
   def new

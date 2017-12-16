@@ -20,7 +20,7 @@ comments
 1. id is hard coded
 2. submitting form through ajax isn't working
 3. Is the rails version correct? nested resource?
-4. json version of backend is saving twice?
+4. json version of backend is saving twice?--fixed
 
 Created class object
 1. How?
