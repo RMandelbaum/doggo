@@ -2,6 +2,7 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+    render json: @dogs
   end
 
   def show
@@ -9,7 +10,7 @@ class DogsController < ApplicationController
     @walk = Walk.find(params[:id]) if @walk
     @walks = Walk.where(dog_id: @dog.id)
     render json: @dog
-    #render "dogs/show", layout: false
+    # #render "dogs/show", layout: false
   end
 
   # def edit

@@ -13,7 +13,7 @@ User Index Page
 Dog Show Page
 1. how do i get id for each dog--right now only working off on dog
 2. Sometimes it renders, othertimes it doesn't
-3. less button-once its clicked, cant see page again
+3. less button-works, but if I click dog name it shows twice now
 4. click buttons renders ajax a few times
 
 comments

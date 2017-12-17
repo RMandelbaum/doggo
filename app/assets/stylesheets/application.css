@@ -20,7 +20,7 @@
   color: #0099a8;
 }
 
-ul {
+/*ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -49,11 +49,10 @@ li a{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
+}*/
 
 .less{
   float: right;
-  border-right:1px solid #eee;
   color: #877874;
   box-sizing: border-box;
   font-size: 20px;
@@ -62,7 +61,6 @@ li a{
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
-  text-transform: none;
   line-height: 1;
   display: block;
   text-align: center;
@@ -187,7 +185,7 @@ h4 {
 #comment-body{
   text-align: left;
   position: relative;
-  left: 100px;
+   left: 100px;
 }
 
 #add-comment{

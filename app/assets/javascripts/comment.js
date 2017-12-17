@@ -1,11 +1,11 @@
-class Comment{
-  constructor(comment){
-    this.id = comment.id
-    this.user_id = comment.user_id
-}
-}
-
-Comment.prototype.username
+// class Comment{
+//   constructor(comment){
+//     this.id = comment.id
+//     this.user_id = comment.user_id
+// }
+// }
+//
+// Comment.prototype.username
 
 function showComments(){
  $('#show-dog').after("<div class='comment-div'><a href = '/comments' class='comments'>Additional Information</a></div>")
