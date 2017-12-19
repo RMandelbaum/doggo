@@ -14,7 +14,16 @@ let dogs = []
     render(){
       //prototype
       // renders html description of the dog
-      $("#dogs-list").addClass('container').append(`<img src= 'https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg'><a class="show-dog" href = '/dogs/${this.id}'>${this.name}</a><br>`)
+      $("#dogs-list").addClass('container').append(`<img src= 'https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg'><a class="show-dog" data-id=${this.id} href = '/dogs/${this.id}'>${this.name}</a><br>`)
+
+     }
+
+     renderDog(){
+       $(`[data-id=${this.id}]`).append(this.name)
+       debugger
+
+
+
      }
 
 
@@ -53,9 +62,9 @@ function indexDogs () {
       $('.show-dog').click(function(e){
       e.preventDefault()
       var url = this.href
-      debugger
       $.get(url, function(resp){
-          console.log(resp)
+        let dog = new Dog(resp)
+        dog.renderDog();
     })
 
   })
@@ -70,6 +79,12 @@ function indexDogs () {
 
     showDogs();
   }
+  //
+  // function showDog(){
+  //   dogs.forEach(function(dog){
+  //     dog.renderDog()
+  //   })
+  // }
 
 
 
