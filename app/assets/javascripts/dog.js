@@ -22,22 +22,7 @@ let walks = []
      renderDog(){
        var info = $(`[data-id=${this.id}]`).removeAttr("href").append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
      }
-    //    info.append("<table><tr><th>Day</th><th>Time</th></tr></table>")
-    //     let walks = this.walks
-    //   // walks.push(this.walks)
-    //    debugger
-    //     walks.forEach(function(walk){
-    //    info.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
-    //    })
-     //
-    //    var link = info.append(`<a href = "/dogs/${this.id}/new id= "add-walk">Add New Walk</a>`)
-    //    link.click(function(e){
-    //       e.preventDefault
-    //       link.append("<form><div class='field'><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
-    //    })
-    //
-     //
-    //   //  showLess();
+
     renderWalks(){
       var walkTable = $(`[data-id=${this.id}]`).append("<table><tr><th>Day</th><th>Time</th></tr></table>")
       let walks = this.walks
@@ -51,7 +36,18 @@ let walks = []
            walkTable.append("<form><div class='field'><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
         })
       }
+
+      showLess(){
+         var less = $(`[data-id=${this.id}]`).before("<a href = '#' class ='less'>X</a>")
+            $('.less').click(function(e){
+               e.preventDefault()
+               less.hide()
+               $('.less').hide()
+               //show the buddy link again
+             })
+
    }
+ }
 
 function indexDogs () {
   $('.list-dogs').click(function (event) {
@@ -84,9 +80,9 @@ function indexDogs () {
         let dog = new Dog(resp)
         dog.renderDog()
         dog.renderWalks()
+        dog.showLess();
         $('.show-dog').off("click")
     })
-     // showLess();
 
   })
 }
