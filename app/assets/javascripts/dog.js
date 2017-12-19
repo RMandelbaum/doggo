@@ -21,17 +21,36 @@ let walks = []
 
      renderDog(){
        var info = $(`[data-id=${this.id}]`).removeAttr("href").append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
-       info.append("<table><tr><th>Day</th><th>Time</th></tr></table>")
-       let walks = this.walks
-       debugger
-       walks.forEach(function(walk){
-       info.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
-       })
-       debugger
-       info.append("<form><div class='field'>Add New Walk<br><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
-
-      //  showLess();
      }
+    //    info.append("<table><tr><th>Day</th><th>Time</th></tr></table>")
+    //     let walks = this.walks
+    //   // walks.push(this.walks)
+    //    debugger
+    //     walks.forEach(function(walk){
+    //    info.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
+    //    })
+     //
+    //    var link = info.append(`<a href = "/dogs/${this.id}/new id= "add-walk">Add New Walk</a>`)
+    //    link.click(function(e){
+    //       e.preventDefault
+    //       link.append("<form><div class='field'><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
+    //    })
+    //
+     //
+    //   //  showLess();
+    renderWalks(){
+      var walkTable = $(`[data-id=${this.id}]`).append("<table><tr><th>Day</th><th>Time</th></tr></table>")
+      let walks = this.walks
+
+      walks.forEach(function(walk){
+        walkTable.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
+      })
+       walkTable.append(`<a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a>`)
+        $('#add-walk').click(function(e){
+           e.preventDefault();
+           walkTable.append("<form><div class='field'><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
+        })
+      }
    }
 
 function indexDogs () {
@@ -58,14 +77,16 @@ function indexDogs () {
   //
   function showDogs() {
 
-      $('.show-dog').click(function(e){
+      $('.show-dog').on("click", function(e){
       e.preventDefault()
       var url = this.href
       $.get(url, function(resp){
         let dog = new Dog(resp)
-        dog.renderDog();
+        dog.renderDog()
+        dog.renderWalks()
+        $('.show-dog').off("click")
     })
-    // showLess();
+     // showLess();
 
   })
 }
@@ -73,16 +94,12 @@ function indexDogs () {
   function showAllDogs(){
     dogs.forEach(function(dog){
       dog.render();
-
-
     })
-
     showDogs();
   }
 
+  indexDogs();
 
-
-    indexDogs();
 
 
   //
