@@ -1,5 +1,5 @@
 class WalkSerializer < ActiveModel::Serializer
-  attributes :id, :day, :time, :dog_id
+  attributes :id, :day, :time, :reserved, :dog_id
 
   belongs_to :dog
 end

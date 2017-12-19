@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
    resources :dogs do
      resources :walks, only: [:new, :create, :update]
-     resources :comments
    end
 
 

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 let dogs = []
+let walks = []
   class Dog{
     constructor(dog){
       this.id = dog.id
@@ -19,21 +20,19 @@ let dogs = []
      }
 
      renderDog(){
-       $(`[data-id=${this.id}]`).append(this.name)
+       var info = $(`[data-id=${this.id}]`).removeAttr("href").append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
+       info.append("<table><tr><th>Day</th><th>Time</th></tr></table>")
+       let walks = this.walks
        debugger
+       walks.forEach(function(walk){
+       info.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
+       })
+       debugger
+       info.append("<form><div class='field'>Add New Walk<br><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
 
-
-
+      //  showLess();
      }
-
-
    }
-
-
-
-
-
-
 
 function indexDogs () {
   $('.list-dogs').click(function (event) {
@@ -47,7 +46,7 @@ function indexDogs () {
           resp.forEach(function(item){
                let dog = new Dog(item)
                dogs.push(dog)
-          //   $("#dogs-list").addClass('container').append(`<img src= 'https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg'><a class="show-dog" href = '/dogs/${item.id}'>${item.name}</a><br>`)
+
             })
             showAllDogs();
         })
@@ -66,6 +65,7 @@ function indexDogs () {
         let dog = new Dog(resp)
         dog.renderDog();
     })
+    // showLess();
 
   })
 }
@@ -79,52 +79,22 @@ function indexDogs () {
 
     showDogs();
   }
-  //
-  // function showDog(){
-  //   dogs.forEach(function(dog){
-  //     dog.renderDog()
-  //   })
-  // }
 
-
-
-      // $('.show-dog').click(function (event) {
-      //   debugger
-      //   event.preventDefault()
-      //   debugger
-      //    $(".info").hide()
-      //    var id = this.id
-      //    alert(id)
-      //
-      //   $.get("dogs/1", function(data){
-      //   $("#show-dog").append("<h4>Age: " + data["age"] + "</h4><h4>Breed: " + data["breed"] + "</h4><h4>Temperament: " + data["temperament"] + "</h4>")
-      //   $('#show-dog').append("<table><tr><th>Day</th><th>Time</th></tr></table>")
-      //
-      //    data.walks.forEach(function(walk){
-      //      $('#show-dog').append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
-      //       })
-      //    })
-      //
-      //    $(".hide-me").hide();
-      //
-      //      showLess();
-      //    showComments();
 
 
     indexDogs();
 
 
-
-  function showLess(){
-    $('#show-dog').before("<a href = '#' class ='less'>X</a>")
-      $(".less").click(function(e){
-        e.preventDefault()
-        $('#show-dog').hide()
-        $('.comment-div').hide()
-        $(".less").hide()
-        //how to showDog and change it back
-      })
-      $('#show-dog').show()
-      //shows twice
-    }
+  //
+  // function showLess(){
+  //   $('.show-dog').before("<a href = '#' class ='less'>X</a>")
+  //     $(".less").click(function(e){
+  //       e.preventDefault()
+  //       $('.show-dog').hide()
+  //       $(".less").hide()
+  //       //how to showDog and change it back
+  //     })
+  //     $('.show-dog').show()
+  //     //shows twice
+  //   }
 })
