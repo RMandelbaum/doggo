@@ -2,28 +2,11 @@ Adding Jquery to admin side of the app only:
 
 Bugs:
 
-**/dogs/1/comments isn't changing when its /dog/2/comments (stays as dog/1) --index/show pages are only showing dog_id 1
-[changed it to @dog = Dog.find(params[:dog_id].to_i)] --> works but maybe this is incorrect
-
-
-User Index Page
-1. When I'm on different page, other than home it doesn't go/sometimes it renders, othertimes it doesn't
-
-
-Dog Show Page
-1. how do i get id for each dog--right now only working off on dog
-2. Sometimes it renders, othertimes it doesn't
-3. less button-works, but if I click dog name it shows twice now
-4. click buttons renders ajax a few times
-
-comments
-1. id is hard coded
-2. submitting form through ajax isn't working
-3. Is the rails version correct? nested resource?
-4. json version of backend is saving twice?--fixed
-
-Created class object
-1. How?
+1. Only can get this to work from main page, not any pages
+2. Only can click one dog at a time othewise it renders to json pages
+3. Submit form isn't working
+4. Allow this for only user/1 - admin, other users should have regular rails--done
+5. Fix Css of non admin user
 
 REQUIREMENTS
 1. Must render at least one index page (index resource - 'list of things') via jQuery and an Active Model Serialization JSON Backend. For example, in a blog domain with users and posts, you might display the index of the users posts on the users show page, fetching the posts via an AJAX GET request, with the backend rendering the posts in JSON format, and then appending the posts to the page.

@@ -2,14 +2,23 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
-    render json: @dogs
+    if current_user.admin?
+      render json: @dogs
+    else
+       render "dogs/index"
+    end
+
   end
 
   def show
     @dog = Dog.find(params[:id])
     @walk = Walk.find(params[:id]) if @walk
     @walks = Walk.where(dog_id: @dog.id)
-    render json: @dog
+    if current_user.admin?
+      render json: @dog
+    else
+      render "dogs/show"
+    end
     # #render "dogs/show", layout: false
   end
 

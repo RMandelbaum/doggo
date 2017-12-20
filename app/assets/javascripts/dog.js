@@ -30,11 +30,16 @@ let walks = []
       walks.forEach(function(walk){
         walkTable.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
       })
+
        walkTable.append(`<a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a>`)
         $('#add-walk').click(function(e){
            e.preventDefault();
-           walkTable.append("<form><div class='field'><input type='text_area' name='walk['day']' placeholder='Day'><input type='text_area' name='walk['time']' placeholder='HH:MM AM/PM'><input type='submit'></div></form>")
+           walkTable.append( `<form id= 'field'><input type='text_area' name='day' placeholder='Day'><input type='text_area' name='time' placeholder='HH:MM AM/PM'><input type='submit'></form>`)
+
+           addWalk();
+
         })
+
       }
 
       showLess(){
@@ -64,6 +69,7 @@ function indexDogs () {
 
             })
             showAllDogs();
+
         })
     })
 
@@ -81,6 +87,7 @@ function indexDogs () {
         dog.renderDog()
         dog.renderWalks()
         dog.showLess();
+
         $('.show-dog').off("click")
     })
 
@@ -96,8 +103,33 @@ function indexDogs () {
 
   indexDogs();
 
+  function addWalk(){
+     $('#field').on("submit", function(event){
+       event.preventDefault();
+      console.log("Hello")
+      var url = this.href
+      debugger
+
+      data= {
+         'walk':  {
+            'day': $("input[name='day']").val(),
+            'time': $("input[name='time']").val()
+          }
+        }
+          $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function(response){
+             console.log(response)
+              //$("input[name='body']").val("");
+            }
+          });
 
 
+
+    })
+  }
   //
   // function showLess(){
   //   $('.show-dog').before("<a href = '#' class ='less'>X</a>")
