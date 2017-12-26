@@ -23,6 +23,7 @@ let walks = []
        var info = $(`[data-id=${this.id}]`).removeAttr("href").append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
      }
 
+
     renderWalks(){
       var walkTable = $(`[data-id=${this.id}]`).append("<table><tr><th>Day</th><th>Time</th></tr></table>")
       let walks = this.walks
@@ -30,17 +31,22 @@ let walks = []
       walks.forEach(function(walk){
         walkTable.append("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
       })
-
+      var url = `/dogs/${this.id}/walks`
+      debugger
        walkTable.append(`<a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a>`)
         $('#add-walk').click(function(e){
            e.preventDefault();
-           walkTable.append( `<form id= 'field'><input type='text_area' name='day' placeholder='Day'><input type='text_area' name='time' placeholder='HH:MM AM/PM'><input type='submit'></form>`)
 
+           walkTable.append( `<form id= 'field' method="post" action="${url}"><input type='text_area' name='day' placeholder='Day'><input type='text_area' name='time' placeholder='HH:MM AM/PM'><input type='submit'></form>`)
            addWalk();
+
 
         })
 
       }
+
+
+
 
       showLess(){
          var less = $(`[data-id=${this.id}]`).before("<a href = '#' class ='less'>X</a>")
@@ -107,8 +113,9 @@ function indexDogs () {
      $('#field').on("submit", function(event){
        event.preventDefault();
       console.log("Hello")
-      var url = this.href
-      debugger
+
+      var url = this.action
+      console.log(url)
 
       data= {
          'walk':  {

@@ -13,4 +13,6 @@ $(document).on('click','.walkers',function (event) {
 
 
       })
+
+
   })

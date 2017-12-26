@@ -29,18 +29,18 @@ class Walk{
 //   })
 // }
 //
-function addWalk(){
-  $('form').submit(function(event){
-    event.preventDefault();
-    console.log("Hello")
-//     var url = "/dogs/1/comments"
-//     data= {
-//      'authenticity token': $("input[name='authenticity_token']").val(),
-//       'comment':  {
-//           'body': $("input[name='body']").val()
-//
-        })
-      }
+// function addWalk(){
+//   $('form').submit(function(event){
+//     event.preventDefault();
+//     console.log("Hello")
+// //     var url = "/dogs/1/comments"
+// //     data= {
+// //      'authenticity token': $("input[name='authenticity_token']").val(),
+// //       'comment':  {
+// //           'body': $("input[name='body']").val()
+// //
+//         })
+//       }
 //
 //         $.ajax({
 //           type: "POST",
