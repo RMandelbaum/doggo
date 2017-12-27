@@ -43,6 +43,7 @@ let walks = []
            e.preventDefault();
            //form to create new walk
            walkTable.append( `<form id= 'field' method="post" action="${url}">
+                              <input type="hidden" name="authenticity_token">
                                 <select name="day">
                                   <option value="Sunday">Sunday</option>
                                   <option value="Monday">Monday</option>
@@ -60,8 +61,12 @@ let walks = []
            addWalk();
         })
 
-      }
 
+
+      }
+      // showNewWalk(response){
+      //   console.log("hello")
+      // }
 
 
       //prototype to add x button and hide info
@@ -137,6 +142,7 @@ function indexDogs () {
       console.log(url)
 
       data= {
+        'authenticity_token': $("input[name='authenticity_token']").val(),
          'walk':  {
             'day': $("select[name='day']").val(),
             'time': $("input[name='time']").val()
@@ -151,8 +157,14 @@ function indexDogs () {
             url: url,
             data: data,
           }).done(function(response){
-            // let dog = new Dog(response)
-            // dog.renderWalks()
+            // let newWalk = response.walks.slice(-1)[0]
+            // debugger
+            //  let dog = new Walk(newWalk)
+            //  debugger
+            //  dog.showNewWalk()
+            // //  console.log(newWalk)
+            debugger
+            //dog.renderWalks()
             var walk = response["walks"].slice(-1)[0]
           $("#add-walk").before("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
             debugger

@@ -67,24 +67,10 @@ li a{
   padding: 14px 16px;
   text-decoration: none;
 }
-.comments{
-  float: left;
-  color: #0099a8;
-  position: relative;
-  left: 70px;
-  box-sizing: border-box;
-  font-size: 20px;
-  font-family: Arial;
-  speak: none;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+
+#walk-table{
+  float:left;
+
 }
 
 
@@ -137,6 +123,22 @@ margin: auto;
 text-align: center;
 
 }
+
+.container2{
+  background: #fff;
+-webkit-box-shadow: 0 3px 0 #ddd;
+margin-bottom: 20px;
+padding: 10px 300px 50px 300px;
+font-family: inherit;
+color: inherit;
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+width: 600px;
+margin: auto;
+text-align: center;
+
+}
 .user{
   background: #fff;
 -webkit-box-shadow: 0 3px 0 #ddd;
@@ -166,6 +168,19 @@ text-align: left;
 
 }
 
+.info2{
+  padding: 20px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin: auto;
+  width: 600px;
+  box-shadow: 3px 3px 3px 3px #ddd;
+
+
+}
+
 .side-info{
   text-align: right;
   float: right;
@@ -182,20 +197,17 @@ h4 {
 
 }
 
-#comment-body{
-  text-align: left;
-  position: relative;
-   left: 100px;
-}
 
-#add-comment{
-  position: relative;
-  float: left;
-  left: 100px;
-}
 
 .field{
   text-align: left;
   position: relative;
   left: 100px;
   margin-bottom: 30px;
+}
+
+.dog-info{
+position: relative;
+left: 100px;
+width:50%;
+}
