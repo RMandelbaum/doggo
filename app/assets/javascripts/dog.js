@@ -151,7 +151,11 @@ function indexDogs () {
             url: url,
             data: data,
           }).done(function(response){
-            console.log(response["walks"].last)
+            // let dog = new Dog(response)
+            // dog.renderWalks()
+            var walk = response["walks"].slice(-1)[0]
+          $("#add-walk").before("<table><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
+            debugger
           })
 
               $("#field").hide()
