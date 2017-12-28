@@ -6,7 +6,7 @@ class DogsController < ApplicationController
       render json: @dogs
     else
        render "dogs/index"
-    end
+     end
 
   end
 

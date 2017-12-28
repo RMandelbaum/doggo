@@ -1,4 +1,5 @@
-$(document).ready(function() {
+//$(document).ready(function() {
+$(document).on('turbolinks:load', function(){
 
 let dogs = []
 let walks = []
@@ -42,8 +43,8 @@ let walks = []
           $('#add-walk').hide()
            e.preventDefault();
            //form to create new walk
-           walkTable.append( `<form id= 'field' method="post" action="${url}">
-                              <input type="hidden" name="authenticity_token">
+           walkTable.append( `<form class= 'new-walk' method="post" action="${url}">
+                              <input type="hidden" name="authenticity_token value="">
                                 <select name="day">
                                   <option value="Sunday">Sunday</option>
                                   <option value="Monday">Monday</option>
@@ -135,7 +136,7 @@ function indexDogs () {
 
   //function to post new walk using ajax
   function addWalk(){
-     $('#field').on("submit", function(event){
+     $('.new-walk').on("submit", function(event){
        event.preventDefault();
 
       var url = this.action
