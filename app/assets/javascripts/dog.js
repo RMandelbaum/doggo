@@ -2,7 +2,6 @@
 $(document).on('turbolinks:load', function(){
 
 let dogs = []
-let walks = []
 //class dog object
   class Dog{
     constructor(dog){
@@ -13,13 +12,7 @@ let walks = []
       this.temperament = dog.temperament
       this.walks = dog.walks
     }
-    //prototype to list dogs
-    render(){
-      //prototype
-      // renders html description of the dog
-      $("#dogs-list").addClass('container').append(`<img src= 'https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg'><a class="show-dog" data-id=${this.id} href = '/dogs/${this.id}'>${this.name}</a><br>`)
 
-     }
      //prototype to show individual dog's detail(show page)
      renderDog(){
        var info = $(`[data-id=${this.id}]`).removeAttr("href").append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)

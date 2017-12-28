@@ -2,11 +2,6 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
-    if current_user.admin?
-      render json: @dogs
-    else
-       render "dogs/index"
-     end
 
   end
 
