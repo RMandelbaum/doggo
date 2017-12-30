@@ -12,6 +12,12 @@ let dogs = []
       this.walks = dog.walks
     }
 
+    renderDog(){
+      console.log(this)
+      $(`#show-dog-${this.id}`).append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
+
+    }
+
 }
 
 
@@ -23,8 +29,8 @@ let dogs = []
 
                $.get(url, function(resp){
                let dog = new Dog(resp)
-               console.log(resp)
-               debugger
+               dog.renderDog()
+
          })
       })
     }
