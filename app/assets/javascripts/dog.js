@@ -13,9 +13,17 @@ let dogs = []
     }
 
     renderDog(){
-      console.log(this)
-      $(`#show-dog-${this.id}`).append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
+      let info = $(`#show-dog-${this.id}`)
+      $(info).append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
+    }
 
+    renderWalks(){
+      let info = $(`#show-dog-${this.id}`)
+      $(info).append("<table><tr><th>Day</th><th>Time</th></tr></table>")
+      let walks = this.walks
+       walks.forEach(function(walk){
+         $(info).append("<table class='dog-table'><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
+      })
     }
 
 }
@@ -30,6 +38,7 @@ let dogs = []
                $.get(url, function(resp){
                let dog = new Dog(resp)
                dog.renderDog()
+               dog.renderWalks()
 
          })
       })
