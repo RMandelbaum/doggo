@@ -11,7 +11,6 @@ let dogs = []
       this.temperament = dog.temperament
       this.walks = dog.walks
     }
-
     renderDog(){
       let info = $(`#show-dog-${this.id}`)
       $(info).append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
@@ -24,6 +23,30 @@ let dogs = []
        walks.forEach(function(walk){
          $(info).append("<table class='dog-table'><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
       })
+    }
+
+    addWalk(){
+      let info = $(`#show-dog-${this.id}`)
+      let link = `<a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a>`
+      let url = `/dogs/${this.id}/walks/new`
+      let clickLink = $(info).append(link)
+      $(clickLink).click(function(e){
+        e.preventDefault()
+        $(info).append(`<form id= 'field' method="post" action="${url}">
+                                          <select name="day">
+                                           <option value="Sunday">Sunday</option>
+                                           <option value="Monday">Monday</option>
+                                           <option value="Tuesday">Tuesday</option>
+                                           <option value="Wednesday">Wednesday</option>
+                                           <option value="Thursday">Thursday</option>
+                                           <option value="Friday">Friday</option>
+                                           <option value="Saturday">Saturday</option>
+                                         </select>
+                                         <input type='text_field' name='time' placeholder='HH:MM AM/PM'>
+                                         <input type='submit'>
+                                    </form>`)
+      })
+
     }
 
 }
@@ -39,6 +62,7 @@ let dogs = []
                let dog = new Dog(resp)
                dog.renderDog()
                dog.renderWalks()
+               dog.addWalk()
 
          })
       })
@@ -48,28 +72,7 @@ let dogs = []
 
 
       showDog();
-//     //prototype to list dogs
-//     render(){
-//       //prototype
-//       // renders html description of the dog
-//       $("#dogs-list").addClass('container').append(`<img src= 'https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg'><a class="show-dog" data-id=${this.id} href = '/dogs/${this.id}'>${this.name}</a><br>`)
 //
-//      }
-//      //prototype to show individual dog's detail(show page)
-//      renderDog(){
-//        var info = $(`[data-id=${this.id}]`).removeAttr("href").append(`<h4>Age:${this.age} Breed:${this.breed} Temperament:${this.temperament}`)
-//      }
-//
-//      //prototype to show walks (has many association)
-//     renderWalks(){
-//       var walkTable = $(`[data-id=${this.id}]`).append("<table><tr><th>Day</th><th>Time</th></tr></table>")
-//       let walks = this.walks
-//
-//       walks.forEach(function(walk){
-//         walkTable.append("<table class='dog-table'><tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr></table")
-//       })
-//
-//       var url = `/dogs/${this.id}/walks`
 //
 //
 //       //link to add new walk form
