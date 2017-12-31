@@ -28,9 +28,9 @@ let dogs = []
     addWalk(){
       let info = $(`#show-dog-${this.id}`)
       let link = `<a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a>`
-      let url = `/dogs/${this.id}/walks/new`
+      let url = `/dogs/${this.id}/walks`
       let clickLink = $(info).append(link)
-      $(clickLink).click(function(e){
+       $(clickLink).click(function(e){
         e.preventDefault()
         $(info).append(`<form id= 'field' method="post" action="${url}">
                                           <select name="day">
@@ -42,10 +42,16 @@ let dogs = []
                                            <option value="Friday">Friday</option>
                                            <option value="Saturday">Saturday</option>
                                          </select>
-                                         <input type='text_field' name='time' placeholder='HH:MM AM/PM'>
+                                         <input type='text_field' id= 'time_id' name='time' placeholder='HH:MM AM/PM'>
                                          <input type='submit'>
                                     </form>`)
+      $(clickLink).off("click")
+      addWalk()
+
       })
+    }
+
+    submitWalk(){
 
     }
 
@@ -72,6 +78,56 @@ let dogs = []
 
 
       showDog();
+
+      function addWalk(){
+        $('#field').on("submit", function(event){
+          event.preventDefault();
+
+          var url = this.action
+
+          data= {
+            'authenticity_token': $("input[name='authenticity_token']").val(),
+             'walk':  {
+                  'day': $("select[name='day']").val(),
+                  'time': $("input[name='time']").val()
+                }
+              }
+
+              $.post(url, data).done(function(response){
+                let newWalk = response.walks.slice(-1)[0]
+                $(".dog-table").after("<table><tr><td>" + newWalk["day"] + "</td><td>" + newWalk["time"] + "</td></tr></table")
+                $("#time_id").val("")
+
+                // $.ajax({
+                //   type: 'POST',
+                //   url: url,
+                //   data: data,
+                // }).done(function(response){
+                //   let newWalk = response.walks.slice(-1)[0]
+                //   console.log(newWalk)
+                //   console.log(this)
+                //   debugger
+                //   $(".dog-table").append("<table><tr><td>" + newWalk["day"] + "</td><td>" + newWalk["time"] + "</td></tr></table")
+                //   debugger
+                //   $("#field").hide()
+                // })
+              })
+            })
+          }
+
+      //           })
+      //
+      //               $("#field").hide()
+      //               $('#add-walk').show()
+      //
+      //             })
+      //           };
+      //
+      //           //  $.post(url, data).done(function(response){
+      //           //   console.log(data["walk"]["day"])
+      //           //   debugger
+      //
+      //   //
 //
 //
 //

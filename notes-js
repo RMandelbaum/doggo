@@ -8,12 +8,8 @@ Step:
 
 Bugs:
 
-1. View Dogs tab only works from root page refresh.
-2. Only can click one dog at a time otherwise it renders to json pages
-3. Less function isn't working
-4. Only can post one dog walk at a time-invalid authenticity token??
-5. Should make walk a new object, and use formatter
-6. Table formatter--can I make it all one table, not many tables
+1. Post is off. Need to figure out where to post new walk
+2. Click sometimes work for other dogs
 
 REQUIREMENTS
 1. Must render at least one index page (index resource - 'list of things') via jQuery and an Active Model Serialization JSON Backend. For example, in a blog domain with users and posts, you might display the index of the users posts on the users show page, fetching the posts via an AJAX GET request, with the backend rendering the posts in JSON format, and then appending the posts to the page.
