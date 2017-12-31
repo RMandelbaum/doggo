@@ -6,8 +6,11 @@ Step:
 
 Bugs:
 
-1. Post is off. Need to figure out where to post new walk
-2. Click sometimes work for other dogs
+1. Post walks for one dog works, second dog get invalid authenticity token
+2. Less button
+3. non admin side
+4. urgent_walks is off
+
 
 REQUIREMENTS
 1. Must render at least one index page (index resource - 'list of things') via jQuery and an Active Model Serialization JSON Backend. For example, in a blog domain with users and posts, you might display the index of the users posts on the users show page, fetching the posts via an AJAX GET request, with the backend rendering the posts in JSON format, and then appending the posts to the page.

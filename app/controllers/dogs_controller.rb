@@ -18,8 +18,7 @@ class DogsController < ApplicationController
     else
       render "dogs/show"
     end
-    # #render "dogs/show", layout: false
-  end
+    end
 
   # def edit
   #   @dog = Dog.find(params[:id])

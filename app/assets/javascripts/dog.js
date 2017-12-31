@@ -16,25 +16,29 @@ $(document).on('turbolinks:load', function() {
 
     renderWalks(){
       let info = $(`#show-dog-${this.id}`)
+      let id = this.id
 
-
-      $(info).after("<table class = dog-table><tr><th>Day</th><th>Time</th></tr></table>")
+      $(info).after(`<table class = dog-table-${id}><tr><th>Day</th><th>Time</th></tr></table>`)
 
         let walks = this.walks
         walks.forEach(function(walk){
-           $(".dog-table").append("<tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr>")
+            $(`.dog-table-${id}`).append("<tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr>")
         })
 
     }
 
     addWalk(){
       let info = $(`#show-dog-${this.id}`)
-      let link = `<a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a>`
+      let id = this.id
+
+      let link = `<div class="new-walk-${id}"><a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a></div>`
       let url = `/dogs/${this.id}/walks`
-      let clickLink = $(".dog-table").append(link)
+      let clickLink = $(`.dog-table-${this.id}`).append(link)
        $(clickLink).click(function(e){
         e.preventDefault()
-        $(info).append(`<form id= 'field' method="post" action="${url}">
+
+        $(`.new-walk-${id}`).append(`<form id= 'field' method="post" action="${url}">
+
                           <select name="day">
                             <option value="Sunday">Sunday</option>
                             <option value="Monday">Monday</option>
@@ -46,6 +50,7 @@ $(document).on('turbolinks:load', function() {
                           </select>
                           <input type='text_field' id= 'time_id' name='time' placeholder='HH:MM AM/PM'>
                           <input type='submit'>
+
                         </form>`)
       $(clickLink).off("click")
       addWalk()
@@ -55,12 +60,14 @@ $(document).on('turbolinks:load', function() {
 
     showLess(){
       let info = $(`#show-dog-${this.id}`)
+      let id = this.id
       let less = $(info).before("<a href = '#' class ='less'>X</a>")
 
       $('.less').click(function(e){
         e.preventDefault()
         less.hide()
         $('.less').hide()
+        $(`.dog-table-${id}`).hide()
         //how to show it again??
       })
 
@@ -98,15 +105,18 @@ $(document).on('turbolinks:load', function() {
           var url = this.action
 
           data= {
+            // 'authenticity_token': $("input[name='authenticity_token']").val(),
              'walk':  {
                   'day': $("select[name='day']").val(),
                   'time': $("input[name='time']").val()
                 }
               }
-
+              debugger
               $.post(url, data).done(function(response){
                 let newWalk = response.walks.slice(-1)[0]
-                $(".dog-table").after("<table><tr><td>" + newWalk["day"] + "</td><td>" + newWalk["time"] + "</td></tr></table")
+                let id = response.id
+
+                $(`.new-walk-${id}`).before("<tr><td>" + newWalk["day"] + "</td><td>" + newWalk["time"] + "</td></tr>")
                 $("#time_id").val("")
               })
             })

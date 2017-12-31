@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+   protect_from_forgery with: :exception
+  #protect_from_forgery unless: -> { request.format.json? }
+
 
   before_action :require_login
   skip_before_action :require_login, only: [:home]
