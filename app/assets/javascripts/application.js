@@ -14,8 +14,6 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
-//= require user
-//= require walk
 
 //= require dog
 //= require_tree .

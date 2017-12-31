@@ -1,10 +1,8 @@
 Adding Jquery to admin side of the app only:
 
 Step:
-1. create dog object from index
-2. click on each link as a dog object to render show page of stats and walks
-3. render walks
-4. add walks
+1. Delete add new walk form and just have link
+2. Less button
 
 Bugs:
 
