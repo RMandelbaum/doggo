@@ -7,9 +7,8 @@ Step:
 Bugs:
 
 1. Post walks for one dog works, second dog get invalid authenticity token
-2. Less button
-3. non admin side
-4. urgent_walks is off
+2. non admin side
+3. urgent_walks is off
 
 
 REQUIREMENTS

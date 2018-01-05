@@ -16,6 +16,8 @@ class WalksController < ApplicationController
   def create
     @user = current_user
     @dog = Dog.find_by(id: params[:dog_id])
+    # binding.pry
+
     @walk = Walk.new(day: params[:walk][:day], time: params[:walk][:time], dog_id: @dog.id, user_id: @user.id)
     if @walk.save
       render json: @dog

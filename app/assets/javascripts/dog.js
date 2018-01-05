@@ -34,12 +34,13 @@ $(document).on('turbolinks:load', function() {
       let link = `<div class="new-walk-${id}"><a href = "/dogs/${this.id}/walks/new" id= "add-walk">Add New Walk</a></div>`
       let url = `/dogs/${this.id}/walks`
       let clickLink = $(`.dog-table-${this.id}`).append(link)
+
        $(clickLink).click(function(e){
         e.preventDefault()
 
-        $(`.new-walk-${id}`).append(`<form id= 'field' method="post" action="${url}">
+        $(`.new-walk-${id}`).append(`<form class= 'field' method="post" action="${url}">
 
-                          <select name="day">
+                          <select class ="day-${id}" name="day">
                             <option value="Sunday">Sunday</option>
                             <option value="Monday">Monday</option>
                             <option value="Tuesday">Tuesday</option>
@@ -48,7 +49,7 @@ $(document).on('turbolinks:load', function() {
                             <option value="Friday">Friday</option>
                             <option value="Saturday">Saturday</option>
                           </select>
-                          <input type='text_field' id= 'time_id' name='time' placeholder='HH:MM AM/PM'>
+                          <input type='text_field' class= 'time-${id}' name='time' placeholder='HH:MM AM/PM'>
                           <input type='submit'>
 
                         </form>`)
@@ -61,12 +62,12 @@ $(document).on('turbolinks:load', function() {
     showLess(){
       let info = $(`#show-dog-${this.id}`)
       let id = this.id
-      let less = $(info).before("<a href = '#' class ='less'>X</a>")
+      let less = $(info).before(`<a href = '#' class = 'less' id ='less-${id}'>X</a>`)
 
-      $('.less').click(function(e){
+      $(`#less-${id}`).click(function(e){
         e.preventDefault()
         less.hide()
-        $('.less').hide()
+        $(`#less-${id}`).hide()
         $(`.dog-table-${id}`).hide()
         //how to show it again??
       })
@@ -99,7 +100,7 @@ $(document).on('turbolinks:load', function() {
       showDog();
 
       function addWalk(){
-        $('#field').on("submit", function(event){
+        $('.field').on("submit", function(event){
           event.preventDefault();
 
           var url = this.action
@@ -107,17 +108,18 @@ $(document).on('turbolinks:load', function() {
           data= {
             // 'authenticity_token': $("input[name='authenticity_token']").val(),
              'walk':  {
-                  'day': $("select[name='day']").val(),
-                  'time': $("input[name='time']").val()
+                  'day': this.children[0].value,
+                  'time': this.children[1].value
                 }
               }
-              debugger
+              //debugger
               $.post(url, data).done(function(response){
                 let newWalk = response.walks.slice(-1)[0]
                 let id = response.id
+                //debugger
 
                 $(`.new-walk-${id}`).before("<tr><td>" + newWalk["day"] + "</td><td>" + newWalk["time"] + "</td></tr>")
-                $("#time_id").val("")
+                $(`.time-${id}`).val("")
               })
             })
           }

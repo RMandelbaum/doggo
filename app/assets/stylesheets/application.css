@@ -202,7 +202,6 @@ h4 {
 .field{
   text-align: left;
   position: relative;
-  left: 100px;
   margin-bottom: 30px;
 }
 
@@ -211,5 +210,3 @@ position: relative;
 left: 100px;
 width:50%;
 }
-
- 
