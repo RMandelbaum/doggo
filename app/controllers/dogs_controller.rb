@@ -2,10 +2,13 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
-    respond_to do |format|
-      format.json { render json: @dogs }
-      format.html
-
+    if current_user.admin?
+      respond_to do |format|
+        format.json { render json: @dogs }
+        format.html
+      end
+    else
+      render "dogs/index"
     end
   end
 

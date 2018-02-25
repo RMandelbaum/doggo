@@ -39,6 +39,8 @@ class WalksController < ApplicationController
   end
 
   def urgent_walks
+
+
     @walks = Walk.urgent_walks
   end
 

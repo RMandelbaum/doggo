@@ -1,9 +1,20 @@
-<div class = "container">
-  <ul>
-  <% @dogs.each do |dog| %>
-    <li><%= link_to image_tag('https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg') + dog.name, dog_path(dog), class: "dogs" %></li><br>
-    <div id="show-dog-<%=dog.id%>"></div>
-  <% end %>
+<% if current_user.admin? %>
+  <div class = "container">
+    <ul>
+    <% @dogs.each do |dog| %>
+      <li><%= link_to image_tag('https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg') + dog.name, dog_path(dog), class: "dogs" %></li><br>
+        <div id="show-dog-<%=dog.id%>"></div>
+    <% end %>
 
-  </ul>
-</div>
+    </ul>
+  </div>
+<% else %>
+  <div class = "container">
+    <ul>
+    <% @dogs.each do |dog| %>
+      <li><%= link_to image_tag('https://irp-cdn.multiscreensite.com/78cb147d/dms3rep/multi/mobile/dog%20walking-849x565.jpg') + dog.name, dog_path(dog), class: "dogs-none" %></li><br>
+    <% end %>
+
+    </ul>
+  </div>
+<% end %>

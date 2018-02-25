@@ -7,10 +7,10 @@
     </tr>
     <% @walks.each do |walk| %>
       <tr>
-        <% if !walk.reserved %>
+        <% if !walk.reserved?  %>
             <td><%= link_to walk.dog.name, dog_path(walk.dog) %></td>
             <td><%= walk.time %></td>
-          <% end %>
+            <% end %>
       </tr>
     <% end %>
     </table>
