@@ -98,7 +98,6 @@ table {
     border-collapse: collapse;
     width: 70%;
     margin: auto;
-    table-layout: fixed
 }
 
 td, th {

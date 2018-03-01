@@ -9,7 +9,7 @@
     <% @walks.each do |walk| %>
       <tr>
           <% if walk.reserved? %>
-              <td> <%= link_to walk.dog.name, dog_path(walk.dog) %></td>
+              <td> <%= walk.dog.name %></td>
               <td> <%= link_to walk.user.username, user_path(walk.user) %></td>
               <td> <%= walk.day %></td>
               <td> <%= walk.time %></td>

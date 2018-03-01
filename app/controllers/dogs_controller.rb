@@ -18,6 +18,7 @@ class DogsController < ApplicationController
     @walks = Walk.where(dog_id: @dog.id)
     if current_user.admin?
       render json: @dog
+      #render "dogs/show"
     else
       render "dogs/show"
     end
