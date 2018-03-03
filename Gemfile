@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'active_model_serializers'
  gem 'jquery-rails'
  gem 'listen', '~> 3.1.5'
- gem 'pg'
+ gem 'pg', '~> 0.18'
 
 
 
