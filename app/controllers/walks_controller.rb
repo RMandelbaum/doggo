@@ -16,9 +16,12 @@ class WalksController < ApplicationController
   def create
     @user = current_user
     @dog = Dog.find_by(id: params[:dog_id])
+    # binding.pry
+
     @walk = Walk.new(day: params[:walk][:day], time: params[:walk][:time], dog_id: @dog.id, user_id: @user.id)
     if @walk.save
-     redirect_to dog_path(@walk.dog)
+      render json: @dog
+      # redirect_to dog_path(@walk.dog)
     else
       render 'new'
     end
@@ -36,13 +39,15 @@ class WalksController < ApplicationController
   end
 
   def urgent_walks
+
+
     @walks = Walk.urgent_walks
   end
 
   def reserved_walks
     if current_user.admin?
       @walks = Walk.all
-      # @walks.each do 
+      # @walks.each do
       # # @users = User.all
       # @walk = Walk.find_by(params[:id])
       # @user = User.find_by(id: @walk.user_id)

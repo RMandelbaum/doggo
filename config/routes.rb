@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :walks, only: [:new, :create, :index]
   end
 
+
    resources :dogs do
      resources :walks, only: [:new, :create, :update]
    end
@@ -19,5 +20,6 @@ Rails.application.routes.draw do
 
   get '/walks/urgent_walks' => 'walks#urgent_walks'
   get '/walks/reserved_walks' => 'walks#reserved_walks'
+
 
 end
