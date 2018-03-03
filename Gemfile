@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'active_model_serializers'
  gem 'jquery-rails'
  gem 'listen', '~> 3.1.5'
+ gem 'pg'
 
 
 
@@ -62,7 +63,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
 
 
