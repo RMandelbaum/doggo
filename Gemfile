@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'dotenv-rails'
  gem 'active_model_serializers'
  gem 'jquery-rails'
+ gem 'pg', '~> 0.18'
+
 
 
 # Use Capistrano for deployment
@@ -45,6 +47,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'pry'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -57,14 +60,12 @@ group :development do
 
 end
 
-group :development do
-  gem 'sqlite3'
-end
-
 group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
