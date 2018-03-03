@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
 
       //iterates over each walk and adds it to the table
       const walks = this.walks
-      
+
       walks.forEach(function(walk){
         $(`.dog-table-${id}`).append("<tr><td>" + walk["day"] + "</td><td>" + walk["time"] + "</td></tr>")
        })
