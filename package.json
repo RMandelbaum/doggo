@@ -1,10 +1,23 @@
 {
   "name": "doggo",
   "private": true,
-  "dependencies": {}
+  "engines": {
+    "node": "8.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js --exec babel-node",
+    "heroku-postbuild": "npm install",
+    "start": "babel-node server.js"
+  },
+  "devDependencies": {
+    "babel": "6.23.0",
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.0",
+    "nodemon": "1.11.0",
+    "webpack-dev-server": "2.11.2"
+  },
+  "dependencies": {
+    "@rails/webpacker": "^3.4.1"
+  }
 }
-
-"scripts": {
-  "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
-  "heroku-postbuild": "npm run webpack:deploy"
-},

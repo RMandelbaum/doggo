@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
  gem 'jquery-rails'
  gem 'listen', '~> 3.1.5'
  gem 'pg', '~> 0.18'
+ gem 'webpacker', '~> 3.4'
+ gem 'yarn', '~> 0.1.1'
+
+
 
 
 
