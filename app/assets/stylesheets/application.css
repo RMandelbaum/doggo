@@ -89,10 +89,8 @@ p{
   font-family: Arial;
   float:left;
   position: absolute;
-  top: 370px;
-  transform: rotate(20deg);
-
-  left: 700px;
+  top: 560px;
+  left: 80px;
 }
 
 table {
