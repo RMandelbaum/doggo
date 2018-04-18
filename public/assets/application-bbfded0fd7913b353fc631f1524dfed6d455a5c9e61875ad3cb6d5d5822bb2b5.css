@@ -1,0 +1,212 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+.home{
+  font-size: 30px;
+  border-bottom:1px solid #eee;
+  color: #0099a8;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:white;
+}
+
+li {
+    float: left;
+    border-right:1px solid #eee;
+
+}
+
+li a{
+  color: #877874;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: Arial;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.less{
+  float: right;
+  color: #877874;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: Arial;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  line-height: 1;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#walk-table{
+  float:left;
+
+}
+
+
+li a:hover {
+  color: #0099a8;
+}
+
+.pic{
+  float: right;
+  padding-top: 50px;
+}
+
+p{
+  color: #877874;
+  font-size: 20px;
+  font-family: Arial;
+  float:left;
+  position: absolute;
+  top: 560px;
+  left: 80px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.container{
+  background: #fff;
+-webkit-box-shadow: 0 3px 0 #ddd;
+margin-bottom: 20px;
+padding: 10px 300px 50px 300px;
+font-family: inherit;
+color: inherit;
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+width: 550px;
+margin: auto;
+text-align: center;
+
+}
+
+.container2{
+  background: #fff;
+-webkit-box-shadow: 0 3px 0 #ddd;
+margin-bottom: 20px;
+padding: 10px 300px 50px 300px;
+font-family: inherit;
+color: inherit;
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+width: 600px;
+margin: auto;
+text-align: center;
+
+}
+.user{
+  background: #fff;
+-webkit-box-shadow: 0 3px 0 #ddd;
+margin-bottom: 20px;
+padding: 50px 300px 50px 300px;
+font-family: inherit;
+color: inherit;
+font-size: 20px;
+font-weight: 400;
+line-height: 1.4;
+width: 500px;
+margin: auto;
+text-align: left;
+
+}
+
+.info{
+  padding: 20px;
+  display: inline-block;
+  text-align: left;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin: auto;
+  width: 400px;
+  box-shadow: 3px 3px 3px 3px #ddd;
+
+
+}
+
+.info2{
+  padding: 20px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin: auto;
+  width: 600px;
+  box-shadow: 3px 3px 3px 3px #ddd;
+
+
+}
+
+.side-info{
+  text-align: right;
+  float: right;
+}
+
+h4 {
+  text-align: left;
+  position: relative;
+  left: 100px;
+}
+
+.dogs{
+  border-top: 5px double grey;
+
+}
+
+
+
+.field{
+  text-align: left;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.dog-info{
+position: relative;
+left: 100px;
+width:50%;
+}
